@@ -105,5 +105,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 #### CSS
 
 
-#### Copyright (c) 2020 **_David Butler_ _Donny Vu_ _Justin Martin_ _ Jonathan Quesada_**
+#### Copyright (c) 2020 **_David Butler_ _Donny Vu_ _Justin Martin_ _ Jonathan Quesada_ **
 #### The software is licensed under the MIT license [Click here](LICENSE.md)
