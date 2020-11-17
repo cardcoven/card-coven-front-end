@@ -1,0 +1,41 @@
+.signupFormDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.signupForm {
+    height: 40vh;
+    width: 40vw;
+    background-color: rgb(34, 27, 28, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
+
+input {
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 1px solid lightgrey;
+    color: lightgray;
+    width: 20vw;
+}
+
+button {
+    border-radius: 4px;
+    padding: 10px 20px;  
+    background-color: #0C998B;
+    color: lightgrey;
+    font-size: 1.01em;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+button:hover {
+    cursor: pointer;
+}

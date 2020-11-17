@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { createUser } from './mtgApi';
+import './styles/signup.css';
 
 export default class SignUp extends Component {
 
@@ -15,6 +16,7 @@ export default class SignUp extends Component {
         const user = await createUser(this.state);
         this.setState({ loading: false })
         this.props.handleTokenUserChange(user.body.token, user.body.email)
+        this.props.history.push('/list');
     }
 
     render() {
@@ -23,8 +25,10 @@ export default class SignUp extends Component {
             <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
         )
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className='signupFormDiv'>
+                <form 
+                className='signupForm'
+                onSubmit={this.handleSubmit}>
                     <label>
                         <input
                             required
