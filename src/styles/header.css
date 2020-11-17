@@ -2,9 +2,8 @@
     height: 15vh;
     display: flex;
     justify-content: space-between;
-    background-color: #34626C;
-    border-bottom: solid black 2px;
-    box-shadow: 0 5px 5px #888888;
+    background-color: rgb(34, 27, 28, 0.9);
+    box-shadow: 0 5px 5px #221b1c ;
     padding-bottom: 5px;
     position: sticky;
 }
@@ -15,10 +14,14 @@
     align-items: flex-end;
 
 }
-input {
-    margin-bottom: 5px;
-    background-color: #CFD3CE ;
-    
+.inputSearch {
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 1px solid lightgrey;
+    background-color: rgb(34, 27, 28, 0.3);
+    color: lightgray;
+    width: 20vw;
 }
 .logo-div {
     
@@ -60,6 +63,6 @@ input {
 
 img {
     height: 10vh;
-    width: 40vh;
+    width: 35vh;
     border-radius: 15px;
 }
