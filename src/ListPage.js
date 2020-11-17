@@ -9,7 +9,7 @@ export default class ListPage extends Component {
     state = {
         cards: [],
         card: {},
-        loading: false
+        loading: false,
     }
     componentDidMount = async () => {
         this.setState({
