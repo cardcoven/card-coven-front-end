@@ -19,7 +19,7 @@ export default class Header extends Component {
 
 
                 <div className="logo-div">
-                    <img src={logo} alt='logo'></img>
+                    <img className='img-logo' src={logo} alt='logo'></img>
                 </div>
                 {/*                                     */}
                 <div className='search-bar'>

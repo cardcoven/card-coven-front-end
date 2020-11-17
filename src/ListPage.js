@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { fetchApi } from './fetchcalls.js'
-import './styles/list.css'
+import { fetchApi } from './mtgApi';
+import './styles/list.css';
+import LeftDrawer from './LeftDrawer';
+import RightDrawer from './RightDrawer';
 
 
 export default class ListPage extends Component {
     state = {
         cards: [],
+        card: {},
         loading: false
     }
     componentDidMount = async () => {
@@ -18,23 +21,41 @@ export default class ListPage extends Component {
             loading: false
         })
         console.log(this.state.cards)
-
-
     }
+
+    handleClick = async () => {  
+        console.log('clicked')  
+    }
+
     render() {
         return (
-            <div className='card-container'>
-                { !!this.state.cards ?
+            <>
+                <div className='main-list-div'>
+                    <LeftDrawer />
+                    <div className='card-container'>
+                        { !!this.state.cards ?
 
-                    this.state.cards.map(card =>
-                        <img src={card.imageUrl} alt="card.name" />)
-                    : "Loading"
+                            this.state.cards
+                            .filter(item => item.imageUrl)
+                            .map(card =>
+                                <div 
+                                key={card.id}
+                                onClick={this.handleClick}
+                                className='image-div'>
+                                    <img src={card.imageUrl || ''} 
+                                    onError={i => i.target.src=''}
+                                    alt={card.name} />
+                                </div>)
+                            : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
 
-                }
+                        }
 
 
 
-            </div>
+                    </div>
+                    <RightDrawer />
+                </div>
+            </>
         )
     }
 }

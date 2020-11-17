@@ -1,11 +1,36 @@
 .card-container {
+    width: 90vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
+.image-div {
+    position: relative;
+    background-image: url('../images/image.png');
+    background-repeat: no-repeat;
+    background-image: cover;
+    background-size: 223px 310px;
+    text-decoration: none;
+    width: 223px;
+    height: 310px;
+    margin: 5px;
+    border-radius: 10px;
+}
 
 img {
-    height: 100px;
-    width: 50px;
+    border-radius: 10px;
 }
+
+.main-list-div {
+    display: flex;
+    grid-template-columns: 10 60 30;
+}
+
+
+
+
+

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { createUser } from './mtgApi';
+import './styles/signup.css';
 
 export default class SignUp extends Component {
 
@@ -15,16 +16,15 @@ export default class SignUp extends Component {
         const user = await createUser(this.state);
         this.setState({ loading: false })
         this.props.handleTokenUserChange(user.body.token, user.body.email)
+        this.props.history.push('/list');
     }
 
     render() {
-        //return gif if loading is true
-        if(this.state.loading) return (
-            <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
-        )
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className='signupFormDiv'>
+                <form 
+                className='signupForm'
+                onSubmit={this.handleSubmit}>
                     <label>
                         <input
                             required
@@ -41,7 +41,13 @@ export default class SignUp extends Component {
                             placeholder='Password'
                         ></input>
                     </label>
-                    <button>Sign up</button>
+                    {
+                        this.state.loading 
+                        ? <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
+                        : <button>
+                            Sign up!
+                        </button>
+                    }
                 </form>
             </div>
         )
