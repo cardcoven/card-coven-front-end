@@ -23,7 +23,7 @@ export default class ListPage extends Component {
     }
     render() {
         return (
-            <div>
+            <div className='card-container'>
                 { !!this.state.cards ?
 
                     this.state.cards.map(card =>
