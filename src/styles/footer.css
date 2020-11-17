@@ -1,0 +1,20 @@
+.footer-div {
+    background-color: rgb(34, 27, 28, 0.9);
+    box-shadow: 0 -5px 5px #221b1c ;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: #2A1F2d
+}
+.about-us {
+    margin-right: 25px
+}
+
+:link {
+    color: #004346;
+}
