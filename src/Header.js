@@ -15,12 +15,12 @@ export default class Header extends Component {
                 </div>
                 {/*                                     */}
                 <div className='search-bar'>
-                    <input placeholder='Search'></input>
+                    <input placeholder='Search' className="inputSearch"></input>
                 </div>
                 {/*                                     */}
                 <div className='header-links'>
-                    <span><Link to='/userDeck'><button className="link-button">My Deck</button></Link></span>
-                    <span><Link to='/list'><button className="link-button">All Cards</button></Link></span>
+                    <span><Link to='/userDeck'>My Deck</Link></span>
+                    <span><Link to='/list'>All Cards</Link></span>
                 </div>
                 {/*                                     */}
                 <div className="logout">
