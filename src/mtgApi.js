@@ -1,6 +1,8 @@
 import request from 'superagent';
+import { PER_PAGE } from './constants';
 
-const URL = 'https://card-coven-back-end-2020.herokuapp.com'
+const URL = 'https://card-coven-back-end-2020.herokuapp.com';
+const MTGURL = 'https://api.magicthegathering.io/v1/cards';
 
 export async function createUser(state) {
     try {
@@ -11,10 +13,12 @@ export async function createUser(state) {
     }
 }
 
-export async function fetchApi() {
+export async function fetchAllCards(page) {
     try {
         return await request
-            .get('https://api.magicthegathering.io/v1/cards')
+            .get(`https://api.magicthegathering.io/v1/cards?pageSize=${PER_PAGE}&page=${page}&contains=imageUrl`)
+            .set()
+
     } catch (e) {
         return {
             error: e.message
