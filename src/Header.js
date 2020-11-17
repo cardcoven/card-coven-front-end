@@ -4,7 +4,15 @@ import './styles/header.css';
 import logo from './images/card-coven.png'
 
 
+
+
 export default class Header extends Component {
+
+    handleLogout = () => {
+        localStorage.clear()
+        this.history.push('./')
+    }
+
     render() {
         return (
             <div className='header'>
@@ -24,7 +32,7 @@ export default class Header extends Component {
                 </div>
                 {/*                                     */}
                 <div className="logout">
-                    <button className="logout-button">Logout</button>
+                    <Link to="./"> <div> <p onClick={() => this.handleLogout}>logout</p> </div></Link>
                 </div>
             </div>
         )
