@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { fetchApi } from './mtgApi';
+import { fetchAllCards } from './mtgApi';
 import './styles/list.css';
 import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
+import PagingButton from './PagingButton';
 
 
 export default class ListPage extends Component {
@@ -10,22 +11,35 @@ export default class ListPage extends Component {
         cards: [],
         card: {},
         loading: false,
+        page: 1,
     }
+
     componentDidMount = async () => {
+        this.fetchAll()
+    }
+
+    fetchAll = async () => {
         this.setState({
             loading: true
         })
-        const results = await fetchApi()
+        const results = await fetchAllCards(this.state.page)
+        console.log(results)
+        console.log(results);
         this.setState({
             cards: results.body.cards,
-            loading: false
+            loading: false,
         })
-        console.log(this.state.cards)
+    }
+    
+    handleNextPage = async () => {
+        this.setState({ page: this.state.page + 1 })
+        this.fetchAll(this.state.page);
     }
 
-    handleClick = async () => {  
-        console.log('clicked')  
-    }
+    handlePrevPage = async () => {
+        this.setState({ page: this.state.page - 1 })
+        this.fetchAll(this.state.page);
+        }
 
     render() {
         return (
@@ -33,25 +47,27 @@ export default class ListPage extends Component {
                 <div className='main-list-div'>
                     <LeftDrawer />
                     <div className='card-container'>
-                        { !!this.state.cards ?
-
+                        {
+                        this.state.cards.length ?
                             this.state.cards
-                            .filter(item => item.imageUrl)
-                            .map(card =>
-                                <div 
-                                key={card.id}
-                                onClick={this.handleClick}
-                                className='image-div'>
-                                    <img src={card.imageUrl || ''} 
-                                    onError={i => i.target.src=''}
-                                    alt={card.name} />
-                                </div>)
-                            : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
+                                .filter(item => item.imageUrl)
+                                .map(card =>
+                                    <div
+                                        key={card.id}
+                                        className='image-div'>
+                                        <img src={card.imageUrl || ''}
+                                            onError={i => i.target.src = ''}
+                                            alt={card.name} />
+                                    </div>)
+                            : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
 
                         }
-
-
-
+                    <PagingButton 
+                    handlePaging={{ next: this.handleNextPage, 
+                    prev: this.handlePrevPage }}
+                    count={this.state.count}
+                    page={this.state.page}
+                    />
                     </div>
                     <RightDrawer />
                 </div>
