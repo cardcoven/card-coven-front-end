@@ -10,3 +10,14 @@ export async function createUser(state) {
         throw err;
     }
 }
+
+export async function fetchApi() {
+    try {
+        return await request
+            .get('https://api.magicthegathering.io/v1/cards')
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+}

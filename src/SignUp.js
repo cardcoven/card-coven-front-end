@@ -20,10 +20,6 @@ export default class SignUp extends Component {
     }
 
     render() {
-        //return gif if loading is true
-        if(this.state.loading) return (
-            <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
-        )
         return (
             <div className='signupFormDiv'>
                 <form 
@@ -45,7 +41,13 @@ export default class SignUp extends Component {
                             placeholder='Password'
                         ></input>
                     </label>
-                    <button>Sign up</button>
+                    {
+                        this.state.loading 
+                        ? <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
+                        : <button>
+                            Sign up!
+                        </button>
+                    }
                 </form>
             </div>
         )
