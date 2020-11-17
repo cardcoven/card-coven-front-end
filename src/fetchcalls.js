@@ -1,5 +1,4 @@
 import request from 'superagent'
-const page = 'Page-Size'
 
 export async function fetchApi() {
     try {
