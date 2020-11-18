@@ -1,0 +1,23 @@
+.about-us-list-container{
+    padding: 20px;
+    border-radius: 20px;
+    background: rgb(34, 27, 28, 0.9);
+    box-shadow: 0 5px 5px #221b1c ;
+    width: 500px;
+    flex-direction: row;
+}
+
+.about-us-links{
+    margin: 20px;
+}
+
+.about-us-names{
+    margin-left: 25px;
+}
+
+.about-us-all{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
