@@ -1,5 +1,5 @@
 .left-drawer-div {
-    background-color: rgb(34, 27, 28, 0.8);
+    
     max-height: calc(var(--footer));
     min-height: 100%;
     margin-top: 5px;
@@ -8,8 +8,15 @@
     position: absolute sticky;
     flex-direction: column;
     justify-content: left;
-    border-top-right-radius: 15px;
+    margin-left: 5px;
     
+}
+.selectors-div {
+    background-color: rgb(34, 27, 28, 0.8);
+    border: solid black 2px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+
 }
 .type-div {
     color: lightgray;
@@ -18,22 +25,40 @@
 }
 .subtypes-div {
     color: lightgray;
+    margin-bottom: 15px;
 }
 select {
     background: #221b1c;
     color: lightgray;
 }
 .mana-form {
+    background-color: rgb(34, 27, 28, 0.8);
     color: lightgray;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     border: solid 1px black;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-radius: 15px;
+    height: 85vh
+}
+.span {
+    display: inline;
 }
 .check-box {
     width: 25px;
+    display: none;
 }
+input[type=checkbox]:checked + image {
+    border: solid red 4px
+ }
+.form-button {
+    margin-top: 5px;
+}
+.mana-img {
+    height: 50px;
+    width: 50px;
+}
+
+
 

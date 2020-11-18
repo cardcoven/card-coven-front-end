@@ -1,5 +1,10 @@
 import request from 'superagent';
 import { PER_PAGE } from './constants';
+import black from './images/black-mana.png'
+import green from './images/green-mana.png'
+import blue from './images/green-mana.png'
+import red from './images/white-mana.png'
+import white from './images/white-mana.png'
 
 const URL = 'https://card-coven-back-end-2020.herokuapp.com';
 const MTGURL = 'https://api.magicthegathering.io/v1/cards';
@@ -120,13 +125,6 @@ export const subtypes = [
     "Ape",
     "Arcane"
 ];
-export const colors = [
-    "Black",
-    "Red",
-    "Blue",
-    "Green",
-    "White",
-]
 export function manaToString(array) {
     let string = '|'
     for (let i = 0; i < array.length; i++) {

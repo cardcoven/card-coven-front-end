@@ -30,7 +30,7 @@ img {
 .main-list-div {
     display: grid;
     width: 100%;
-    grid-template-columns: 12vw 68vw 19.1vw;
+    grid-template-columns: 12vw 68vw 20vw;
 }
 
 .image-div:hover {
