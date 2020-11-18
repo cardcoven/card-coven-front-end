@@ -1,4 +1,39 @@
 .left-drawer-div {
     background-color: rgb(34, 27, 28, 0.8);
+    max-height: calc(var(--footer));
     min-height: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    position: absolute sticky;
+    flex-direction: column;
+    justify-content: left;
+    border-top-right-radius: 15px;
+    
 }
+.type-div {
+    color: lightgray;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+.subtypes-div {
+    color: lightgray;
+}
+select {
+    background: #221b1c;
+    color: lightgray;
+}
+.mana-form {
+    color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.check-box {
+    width: 25px;
+}
+
