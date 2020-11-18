@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     margin: 0;
+    margin-top: 10px;
 
 }
 
@@ -29,7 +30,7 @@ img {
 .main-list-div {
     display: grid;
     width: 100%;
-    grid-template-columns: 10vw 70vw 19.1vw;
+    grid-template-columns: 12vw 68vw 19.1vw;
 }
 
 .image-div:hover {

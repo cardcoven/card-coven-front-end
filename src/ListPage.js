@@ -5,7 +5,6 @@ import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
 import PagingButton from './PagingButton';
 
-
 export default class ListPage extends Component {
     state = {
         cards: [],
@@ -16,67 +15,96 @@ export default class ListPage extends Component {
     }
 
     componentDidMount = async () => {
+
         this.fetchAll()
+
     }
 
     fetchAll = async () => {
+
         this.setState({
             loading: true
         })
+
         const results = await fetchAllCards(this.state.page)
+
         this.setState({
             cards: results.body.cards,
             loading: false,
         })
+        
     }
 
     handleNextPage = async () => {
+
         this.setState({ page: this.state.page + 1 })
+
         this.fetchAll(this.state.page);
+        
     }
 
     handlePrevPage = async () => {
+
         this.setState({ page: this.state.page - 1 })
+
         this.fetchAll(this.state.page);
+
     }
 
     handleTypeChange = async (e) => {
+
         this.setState({
             loading: true
         })
+
         const results = await fetchByType(this.state.page, e.target.value)
+
         console.log(e.target.value)
+
         this.setState({
             cards: results.body.cards,
             loading: false
         })
+
     }
     handleSubTypeChange = async (e) => {
+
         this.setState({
             loading: true
         })
+
         const results = await fetchBySubType(this.state.page, e.target.value)
+
         console.log(e.target.value)
+
         this.setState({
             cards: results.body.cards,
             loading: false
         })
+
     }
     handleManaChange = async (e) => {
+
         e.preventDefault()
+
         let manaSearch = manaToString(this.state.mana)
         this.setState({
             loading: true
         })
+
         const results = await fetchByMana(this.state.page, manaSearch)
         console.log(e.target.value)
         this.setState({
             cards: results.body.cards,
             loading: false
         })
+
     }
+
     handleManaOptions = (e) => {
+
         const mana = this.state.mana
+
         for (let i = 0; i < mana.length; i++) {
             const variable = mana[i]
             if (e.target.value === variable) {
@@ -84,11 +112,15 @@ export default class ListPage extends Component {
                 return
             }
         }
+
         mana.push(e.target.value)
+
         this.setState({
             mana: mana
         })
+
     }
+
     render() {
         return (
             <>
@@ -99,6 +131,7 @@ export default class ListPage extends Component {
                         handleManaChange={this.handleManaChange}
                         handleManaOptions={this.handleManaOptions}
                     />
+                    <div>
                     <div className='card-container'>
                         {
                             this.state.cards.length ?
@@ -127,8 +160,9 @@ export default class ListPage extends Component {
                         count={this.state.count}
                         page={this.state.page}
                     />
-                </div>
+                    </div>
                 <RightDrawer className='right-container' card={this.state.card} />
+                </div>
 
             </>
         )
