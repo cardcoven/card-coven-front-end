@@ -101,7 +101,6 @@ export default class ListPage extends Component {
                     />
                     <div className='card-container'>
                         {
-
                             this.state.cards.length ?
                                 this.state.cards
                                     .filter(item => item.imageUrl)
@@ -118,7 +117,8 @@ export default class ListPage extends Component {
                                         </div>)
                                 : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
 
-                        }
+                            }
+                        </div>
                         <PagingButton className='paging-button'
                             handlePaging={{
                                 next: this.handleNextPage,
@@ -126,9 +126,9 @@ export default class ListPage extends Component {
                             }}
                             count={this.state.count}
                             page={this.state.page}
-                        />
+                            />
                     </div>
-                    <RightDrawer card={this.state.card} />
+                    <RightDrawer className='right-container'card={this.state.card}/>
                 </div>
             </>
         )
