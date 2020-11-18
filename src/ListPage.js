@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import { fetchAllCards, fetchByType, fetchBySubType, fetchByMana, manaToString } from './mtgApi';
+import { 
+    fetchAllCards, 
+    fetchByType, 
+    fetchBySubType, 
+    fetchByMana, 
+    manaToString,
+    fetchDecks } from './mtgApi';
 import './styles/list.css';
 import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
@@ -11,13 +17,15 @@ export default class ListPage extends Component {
         card: {},
         loading: false,
         page: 1,
-        mana: []
+        mana: [],
+        decks: []
     }
 
     componentDidMount = async () => {
-
-        this.fetchAll()
-
+        const response = await fetchDecks(this.props.token)
+        console.log(response);
+        this.setState({ decks: response.body })
+        await this.fetchAll()
     }
 
     fetchAll = async () => {

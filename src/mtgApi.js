@@ -49,10 +49,23 @@ export async function fetchAllCards(page) {
     }
 }
 
+export async function fetchDecks(token) {
+    try {
+        return await request
+
+            .get(`${URL}/api/decks`)
+            .set('Authorization', token)
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+}
+
 export async function fetchByType(page, type) {
     try {
         return await request
-            .get(`https://api.magicthegathering.io/v1/cards?types=${type}&pageSize=20&page=${page}`)
+            .get(`https://api.magicthegathering.io/v1/cards?types=${type}&pageSize=${PER_PAGE}&page=${page}`)
     } catch (e) {
         return {
             error: e.message
@@ -63,7 +76,7 @@ export async function fetchByType(page, type) {
 export async function fetchBySubType(page, type) {
     try {
         return await request
-            .get(`https://api.magicthegathering.io/v1/cards?subtypes=${type}&pageSize=20&page=${page}`)
+            .get(`https://api.magicthegathering.io/v1/cards?subtypes=${type}&pageSize=${PER_PAGE}&page=${page}`)
     } catch (e) {
         return {
             error: e.message
