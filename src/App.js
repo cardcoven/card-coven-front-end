@@ -52,11 +52,13 @@ export default class App extends Component {
               handleTokenUserChange={this.handleTokenUserChange}
               {...routerProps} />}
             />
-            <Route
+            <PrivateRoute
               exact path='/list'
-              render={(routerProps) => <ListPage
+              token={this.state.token}
+              render={(routerProps) => 
+              <ListPage
                 handleTokenUserChange={this.handleTokenUserChange}
-                {...routerProps} />}
+                token={this.state.token} {...routerProps} />}
             />
             <Route
               exact path='/aboutUS'
