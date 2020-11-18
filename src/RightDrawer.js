@@ -6,7 +6,8 @@ export default class RightDrawer extends Component {
     render() {
         return (
             <div className='right-drawer-div'>
-                This is the right Drawer
+                <img src={this.props.card.imageUrl} alt={this.props.card.name}/>
+                <p>{this.props.card.text}</p>
             </div>
         )
     }

@@ -16,8 +16,31 @@ export async function createUser(state) {
 export async function fetchAllCards(page) {
     try {
         return await request
-            .get(`https://api.magicthegathering.io/v1/cards?pageSize=${PER_PAGE}&page=${page}&contains=imageUrl`)
-            .set()
+            .get(`https://api.magicthegathering.io/v1/cards?pageSize=${PER_PAGE}&page=${page}`)
+
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+}
+
+export async function fetchCardById(id) {
+    try {
+        return await request
+            .get(`https://api.magicthegathering.io/v1/cards/${id}`)
+
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+}
+
+export async function fetchCardByName(name) {
+    try {
+        return await request
+            .get(`https://api.magicthegathering.io/v1/cards/${name}`)
 
     } catch (e) {
         return {

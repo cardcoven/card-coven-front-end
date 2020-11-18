@@ -30,6 +30,10 @@ img {
     grid-template-columns: 10 60 30;
 }
 
+.image-div:hover {
+    cursor: pointer;
+}
+
 
 
 
