@@ -1,5 +1,6 @@
 .pagingDiv {
     justify-content: center;
     display: flex;
-    
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
