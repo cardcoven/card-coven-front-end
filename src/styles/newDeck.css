@@ -1,19 +1,11 @@
-.signupFormDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10vh;
-    margin: 10px
-}
-
-.login-form-div {
+.new-deck-div {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10vh;
 }
 
-.signupForm {
+.new-deck-form {
     height: 40vh;
     width: 40vw;
     background-color: rgb(34, 27, 28, 0.9);
@@ -22,17 +14,6 @@
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
-}
-
-.login-form {
-    height: 40vh;
-    width: 40vw;
-    background-color: rgb(34, 27, 28, 0.9);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 10px; 
 }
 
 input {

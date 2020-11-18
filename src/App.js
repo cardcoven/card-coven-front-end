@@ -5,6 +5,7 @@ import {
   Switch,
 } from "react-router-dom";
 import ListPage from './ListPage.js';
+import NewDeck from './NewDeck.js';
 import DeckPage from './DeckPage.js';
 import AboutUs from './AboutUs.js';
 import Login from './Login.js'
@@ -68,6 +69,13 @@ export default class App extends Component {
               exact path='/aboutUS'
               render={(routerProps) => <AboutUs
                 handleTokenUserChange={this.handleTokenUserChange}
+                {...routerProps} />}
+            />
+            <PrivateRoute 
+              exact 
+              path='/newDeck' 
+              render={(routerProps) => <NewDeck
+              handleTokenUserChange={this.handleTokenUserChange}
                 {...routerProps} />}
             />
             <PrivateRoute

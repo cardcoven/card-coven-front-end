@@ -16,15 +16,17 @@ export default class SignUp extends Component {
         const user = await createUser(this.state);
         this.setState({ loading: false })
         this.props.handleTokenUserChange(user.body.token, user.body.email)
-        this.props.history.push('/list');
+        this.props.history.push('/newDeck');
     }
 
     render() {
         return (
+            <div>
             <div className='signupFormDiv'>
                 <form 
                 className='signupForm'
                 onSubmit={this.handleSubmit}>
+                    <h2>Sign Up</h2>
                     <label>
                         <input
                             required
@@ -49,6 +51,37 @@ export default class SignUp extends Component {
                         </button>
                     }
                 </form>
+                </div>
+                <div className='login-form-div'>
+                    <form 
+                    className='login-form'
+                    onSubmit={this.handleSubmit}>
+                        <h2>Log In</h2>
+                        <label>
+                            Email:
+                        <input 
+                        onChange={(e) => this.setState({ email: e.target.value})} 
+                        value={this.state.email} 
+                        />
+                        </label>
+                        <label>
+                            Password:
+                            <input 
+                            onChange={(e) => this.setState({ password: e.target.value})} 
+                            value={this.state.password} 
+                            type="password"
+                            />
+                        </label>
+                        {
+                            this.state.loading
+                            ? 'loading'
+                            : <button>
+                                Submit
+                            </button>
+                        }
+                    </form>
+                
+            </div>
             </div>
         )
     }
