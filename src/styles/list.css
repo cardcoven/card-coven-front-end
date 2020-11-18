@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     margin: 0;
+
 }
 
 .image-div {
@@ -26,8 +27,9 @@ img {
 }
 
 .main-list-div {
-    display: flex;
-    grid-template-columns: 10 60 30;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 10vw 70vw 19.1vw;
 }
 
 .image-div:hover {
@@ -40,7 +42,10 @@ img {
     align-items: center;
 }
 
-
+.right-container {
+    display: flex;
+    justify-content: flex-end;
+}
 
 
 
