@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { fetchAllCards, fetchCardById } from './mtgApi';
+import { fetchAllCards, fetchByType, fetchBySubType, fetchByMana } from './mtgApi';
 import './styles/list.css';
 import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
@@ -28,7 +28,7 @@ export default class ListPage extends Component {
             loading: false,
         })
     }
-    
+
     handleNextPage = async () => {
         this.setState({ page: this.state.page + 1 })
         this.fetchAll(this.state.page);
@@ -39,13 +39,50 @@ export default class ListPage extends Component {
         this.fetchAll(this.state.page);
     }
 
+    handleTypeChange = async (e) => {
+        this.setState({
+            loading: true
+        })
+        const results = await fetchByType(this.state.page, e.target.value)
+        console.log(e.target.value)
+        this.setState({
+            cards: results.body.cards,
+            loading: false
+        })
+    }
+    handleSubTypeChange = async (e) => {
+        this.setState({
+            loading: true
+        })
+        const results = await fetchBySubType(this.state.page, e.target.value)
+        console.log(e.target.value)
+        this.setState({
+            cards: results.body.cards,
+            loading: false
+        })
+    }
+    handleManaChange = async (e) => {
+        this.setState({
+            loading: true
+        })
+        const results = await fetchByMana(this.state.page, e.target.value)
+        console.log(e.target.value)
+        this.setState({
+            cards: results.body.cards,
+            loading: false
+        })
+    }
     render() {
         return (
             <>
                 <div className='main-list-div'>
-                    <LeftDrawer />
+                    <LeftDrawer
+                        handleTypeChange={this.handleTypeChange}
+                        handleSubTypeChange={this.handleSubTypeChange}
+                        handleManaChange={this.handleManaChange} />
                     <div className='card-container'>
                         {
+
                         this.state.cards.length ?
                             this.state.cards
                                 .filter(item => item.imageUrl)

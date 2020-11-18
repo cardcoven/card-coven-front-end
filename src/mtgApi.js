@@ -7,8 +7,8 @@ const MTGURL = 'https://api.magicthegathering.io/v1/cards';
 export async function createUser(state) {
     try {
         return await request.post(`${URL}/auth/signup`)
-        .send(state)
-    } catch(err) {
+            .send(state)
+    } catch (err) {
         throw err;
     }
 }
@@ -16,20 +16,18 @@ export async function createUser(state) {
 export async function fetchAllCards(page) {
     try {
         return await request
-            .get(`https://api.magicthegathering.io/v1/cards?pageSize=${PER_PAGE}&page=${page}`)
 
+            .get(`${MTGURL}?&pageSize=20&page=${page}&`)
     } catch (e) {
         return {
             error: e.message
         }
     }
 }
-
-export async function fetchCardById(id) {
+export async function fetchByType(page, type) {
     try {
         return await request
-            .get(`https://api.magicthegathering.io/v1/cards/${id}`)
-
+            .get(`https://api.magicthegathering.io/v1/cards?types=${type}&pageSize=20&page=${page}`)
     } catch (e) {
         return {
             error: e.message
@@ -37,14 +35,57 @@ export async function fetchCardById(id) {
     }
 }
 
-export async function fetchCardByName(name) {
+export async function fetchBySubType(page, type) {
     try {
         return await request
-            .get(`https://api.magicthegathering.io/v1/cards/${name}`)
-
+            .get(`https://api.magicthegathering.io/v1/cards?subtypes=${type}&pageSize=20&page=${page}`)
     } catch (e) {
         return {
             error: e.message
         }
     }
 }
+export async function fetchByMana(page, type) {
+    try {
+        return await request
+            .get(`https://api.magicthegathering.io/v1/cards?colors=${type}&pageSize=20&page=${page}`)
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+
+}
+
+export const types = [
+    "Artifact",
+    "Conspiracy",
+    "Creature",
+    "Enchantment",
+    "Instant",
+    "Land",
+    "Phenomenon",
+    "Plane",
+    "Planeswalker",
+    "Scheme",
+    "Sorcery",
+    "Tribal",
+    "Vanguard"
+];
+export const subtypes = [
+    "Advisor",
+    "Ajani",
+    "Alara",
+    "Ally",
+    "Angel",
+    "Antelope",
+    "Ape",
+    "Arcane"
+];
+export const colors = [
+    "Black",
+    "Red",
+    "Blue",
+    "Green",
+    "White",
+]
