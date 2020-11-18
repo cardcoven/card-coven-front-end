@@ -6,28 +6,32 @@ export default class LeftDrawer extends Component {
     render() {
         return (
             <div className='left-drawer-div'>
-                <select onChange={this.props.handleTypeChange}>
-                    <option></option>
-                    {
-                        types.map(item =>
-                            <option key={item} value={item}>{item}</option>
-                        )
-                    }
-                </select>
-                <select onChange={this.props.handleSubTypeChange}>
-                    <option></option>
-                    {
-                        subtypes.map(item =>
+                <div className="type-div">
+                    <select className="type-select" onChange={this.props.handleTypeChange}>
+                        <option></option>
+                        {
+                            types.map(item =>
+                                <option key={item} value={item}>{item}</option>
+                            )
+                        }
+                    </select>
+                </div>
+                <div className="subtypes-div">
+                    <select onChange={this.props.handleSubTypeChange}>
+                        <option></option>
+                        {
+                            subtypes.map(item =>
 
-                            <option key={item} value={item}>{item}</option>)
-                    }
-                </select>
+                                <option key={item} value={item}>{item}</option>)
+                        }
+                    </select>
+                </div>
                 <div className="mana-form">
                     <form onSubmit={this.props.handleManaChange}>
                         {
                             colors.map(item =>
-                                <label key={item}>{item}
-                                    <input onClick={this.props.handleManaOptions} type="checkbox" value={item} />
+                                <label className="label" key={item}><p>{item}</p>
+                                    <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value={item} />
                                 </label>)
                         }
                         <button>Search</button>

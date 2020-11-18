@@ -1,4 +1,25 @@
 .left-drawer-div {
     background-color: rgb(34, 27, 28, 0.8);
+    max-height: calc(var(--footer));
     min-height: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    position: absolute sticky;
+    flex-direction: column;
+    justify-content: left;
+    border-top-right-radius: 15px;
+    
 }
+.type-div {
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+select {
+    background: #221b1c;
+}
+.mana-form {
+    display: flex;
+    flex-direction: row;
+}
+
