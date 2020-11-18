@@ -13,6 +13,30 @@ export async function createUser(state) {
     }
 }
 
+export async function userLogin(state) {
+    try {
+        return await request.post(`${URL}/auth/signin`)
+            .send(state)
+    } catch (err) {
+        throw err;
+    }
+}
+
+//Adds new deck into SQL back end
+//contract requires a deck_name, deck_description, deck_type, and an owner_id
+export async function createDeck(newDeck, token) {
+    try {   
+        await request
+        .post('https://card-coven-back-end-2020.herokuapp.com/api/decks')
+        .send(newDeck)
+        .set('Authorization', token)
+
+        return;
+    } catch (e) {
+    throw e;
+    }
+}
+
 export async function fetchAllCards(page) {
     try {
         return await request
@@ -24,6 +48,7 @@ export async function fetchAllCards(page) {
         }
     }
 }
+
 export async function fetchByType(page, type) {
     try {
         return await request
