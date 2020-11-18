@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { fetchAllCards } from './mtgApi';
+import { fetchAllCards, fetchCardById } from './mtgApi';
 import './styles/list.css';
 import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
@@ -23,8 +23,6 @@ export default class ListPage extends Component {
             loading: true
         })
         const results = await fetchAllCards(this.state.page)
-        console.log(results)
-        console.log(results);
         this.setState({
             cards: results.body.cards,
             loading: false,
@@ -39,7 +37,7 @@ export default class ListPage extends Component {
     handlePrevPage = async () => {
         this.setState({ page: this.state.page - 1 })
         this.fetchAll(this.state.page);
-        }
+    }
 
     render() {
         return (
@@ -53,11 +51,14 @@ export default class ListPage extends Component {
                                 .filter(item => item.imageUrl)
                                 .map(card =>
                                     <div
-                                        key={card.id}
+                                        key={card.id} 
+                                        onClick={async () => await this.setState({ card: card })}                                    
                                         className='image-div'>
                                         <img src={card.imageUrl || ''}
                                             onError={i => i.target.src = ''}
-                                            alt={card.name} />
+                                            alt={card.name} 
+                                            value={card.multiverseid}
+                                            />
                                     </div>)
                             : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
 
@@ -69,7 +70,7 @@ export default class ListPage extends Component {
                     page={this.state.page}
                     />
                     </div>
-                    <RightDrawer />
+                    <RightDrawer card={this.state.card}/>
                 </div>
             </>
         )
