@@ -1,5 +1,5 @@
 .card-container {
-    width: 90vw;
+    /* width: 80vw; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -28,6 +28,16 @@ img {
 .main-list-div {
     display: flex;
     grid-template-columns: 10 60 30;
+}
+
+.image-div:hover {
+    cursor: pointer;
+}
+
+.paging-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

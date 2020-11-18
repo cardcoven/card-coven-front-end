@@ -16,6 +16,7 @@ export async function createUser(state) {
 export async function fetchAllCards(page) {
     try {
         return await request
+
             .get(`${MTGURL}?&pageSize=20&page=${page}&`)
     } catch (e) {
         return {
@@ -33,6 +34,7 @@ export async function fetchByType(page, type) {
         }
     }
 }
+
 export async function fetchBySubType(page, type) {
     try {
         return await request
