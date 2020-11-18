@@ -63,12 +63,12 @@ export default class ListPage extends Component {
                             : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
 
                         }
-                    <PagingButton 
-                    handlePaging={{ next: this.handleNextPage, 
-                    prev: this.handlePrevPage }}
-                    count={this.state.count}
-                    page={this.state.page}
-                    />
+                        <PagingButton className='paging-button'
+                            handlePaging={{ next: this.handleNextPage, 
+                            prev: this.handlePrevPage }}
+                            count={this.state.count}
+                            page={this.state.page}
+                        />
                     </div>
                     <RightDrawer card={this.state.card}/>
                 </div>
