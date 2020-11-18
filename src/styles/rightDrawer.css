@@ -1,18 +1,32 @@
 .right-drawer-div {
-    background-color: rgb(34, 27, 28, 0.8);
+    /* background-color: rgb(34, 27, 28, 0.8); */
     min-height: 100%;
     color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-right: 20px;
 }
-
-.right-drawer-img{
-    margin-top: 50px;
+.display-image {
+     margin-top: 50px; 
+    margin-bottom: 5px;
+    
 }
-
-.right-drawer-card-text {
-    width: 80%;
+.description-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid black 2px;
+    margin-right: 20px;
+    border-radius: 15px;
+    margin-top: 25px;
+    background-color: rgb(34, 27, 28, 0.8);
     text-align: center;
     
+
+}
+.right-drawer-img{
+    margin-top: 50px;
+    margin-bottom: 50px; 
 }
