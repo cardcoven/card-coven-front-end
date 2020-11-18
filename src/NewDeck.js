@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createDeck } from './fetches/fetches';
+import { createDeck } from './mtgApi.js';
 import './styles/newDeck.css';
 
 export default class NewDeck extends Component {
@@ -14,8 +14,8 @@ export default class NewDeck extends Component {
 
         await createDeck(
             {
-            new_deck: this.state.new_deck,
-            new_description: this.state.new_description,
+            deck_name: this.state.new_deck,
+            deck_description: this.state.new_description,
             deck_type: true,
             }, 
             this.props.token
@@ -29,7 +29,8 @@ export default class NewDeck extends Component {
             <div className='new-deck-div'>
                 <form 
                 className='new-deck-form'
-                onSubmit={this.handleSubmit}>
+                onSubmit={this.handleSubmit}
+                >
                     <label>New Deck Name<br></br>
                         <input
                             required

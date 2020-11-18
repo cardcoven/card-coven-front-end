@@ -7,12 +7,6 @@ import logo from './images/card-coven.png'
 
 
 export default class Header extends Component {
-
-    handleLogout = () => {
-        localStorage.clear()
-        this.history.push('./')
-    }
-
     render() {
         return (
             <div className='header'>
@@ -31,8 +25,16 @@ export default class Header extends Component {
                     <span><Link to='/list'>All Cards</Link></span>
                 </div>
                 {/*                                     */}
+                <div className=''>
+                    <span><Link to='/newDeck'>Create Deck</Link></span>
+                </div>
                 <div className="logout">
-                    <Link to="./"> <div> <p onClick={() => this.handleLogout}>logout</p> </div></Link>
+                    <Link to="./"> 
+                        <div> 
+                            <p onClick={() => this.props.logout()}>logout</p> 
+                        </div>
+                    </Link>
+                    
                 </div>
             </div>
         )

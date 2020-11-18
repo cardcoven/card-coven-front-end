@@ -9,7 +9,6 @@ import NewDeck from './NewDeck.js';
 import DeckPage from './DeckPage.js';
 import AboutUs from './AboutUs.js';
 import Login from './Login.js'
-import SignUp from './SignUp.js'
 import PrivateRoute from './PrivateRoute.js';
 import { TOKEN, USERNAME } from './constants';
 import Header from './Header.js';
@@ -54,12 +53,6 @@ export default class App extends Component {
               {...routerProps} />}
             />
             <Route
-              exact path='/signup'
-              render={(routerProps) => <SignUp
-                handleTokenUserChange={this.handleTokenUserChange}
-                {...routerProps} />}
-            />
-            <Route
               exact path='/list'
               render={(routerProps) => <ListPage
                 handleTokenUserChange={this.handleTokenUserChange}
@@ -73,17 +66,24 @@ export default class App extends Component {
             />
             <PrivateRoute 
               exact 
+              token={this.state.token}
               path='/newDeck' 
-              render={(routerProps) => <NewDeck
-              handleTokenUserChange={this.handleTokenUserChange}
+              render={(routerProps) => 
+                <NewDeck
+                handleTokenUserChange={this.handleTokenUserChange}
+                token={this.state.token}
                 {...routerProps} />}
             />
             <PrivateRoute
               exact
               path='/userDeck'
               token={this.state.token}
-              render={(routerProps) => <DeckPage
-                {...routerProps} />} />
+              render={(routerProps) => 
+              <DeckPage
+                {...routerProps} 
+                token={this.state.token}
+                />} 
+              />
           </Switch>
           <Footer />
         </Router>
