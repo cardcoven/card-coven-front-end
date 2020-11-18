@@ -7,6 +7,7 @@ export default class LeftDrawer extends Component {
         return (
             <div className='left-drawer-div'>
                 <div className="type-div">
+                    <p>Sort by Type: </p>
                     <select className="type-select" onChange={this.props.handleTypeChange}>
                         <option></option>
                         {
@@ -17,6 +18,7 @@ export default class LeftDrawer extends Component {
                     </select>
                 </div>
                 <div className="subtypes-div">
+                    <p>Sort By SubType</p>
                     <select onChange={this.props.handleSubTypeChange}>
                         <option></option>
                         {
@@ -27,6 +29,7 @@ export default class LeftDrawer extends Component {
                     </select>
                 </div>
                 <div className="mana-form">
+                    <p>Sort by Mana Types</p>
                     <form onSubmit={this.props.handleManaChange}>
                         {
                             colors.map(item =>
