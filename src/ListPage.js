@@ -117,19 +117,19 @@ export default class ListPage extends Component {
                                         </div>)
                                 : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
 
-                            }
-                        </div>
-                        <PagingButton className='paging-button'
-                            handlePaging={{
-                                next: this.handleNextPage,
-                                prev: this.handlePrevPage
-                            }}
-                            count={this.state.count}
-                            page={this.state.page}
-                            />
+                        }
                     </div>
-                    <RightDrawer className='right-container'card={this.state.card}/>
+                    <PagingButton className='paging-button'
+                        handlePaging={{
+                            next: this.handleNextPage,
+                            prev: this.handlePrevPage
+                        }}
+                        count={this.state.count}
+                        page={this.state.page}
+                    />
                 </div>
+                <RightDrawer className='right-container' card={this.state.card} />
+
             </>
         )
     }
