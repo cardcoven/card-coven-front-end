@@ -1,11 +1,13 @@
 .right-drawer-div {
-    /* background-color: rgb(34, 27, 28, 0.8); */
+    background-color: rgb(34, 27, 28, 0.8);
+    border-radius: 15px;
     min-height: 100%;
     color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-right: 20px;
+    margin-top: 15px;
 }
 .display-image {
      margin-top: 50px; 
