@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { fetchAllCards, fetchByType, fetchBySubType, fetchByMana } from './mtgApi';
+import { fetchAllCards, fetchByType, fetchBySubType, fetchByMana, manaToString } from './mtgApi';
 import './styles/list.css';
 import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
@@ -12,6 +12,7 @@ export default class ListPage extends Component {
         card: {},
         loading: false,
         page: 1,
+        mana: []
     }
 
     componentDidMount = async () => {
@@ -62,14 +63,30 @@ export default class ListPage extends Component {
         })
     }
     handleManaChange = async (e) => {
+        e.preventDefault()
+        let manaSearch = manaToString(this.state.mana)
         this.setState({
             loading: true
         })
-        const results = await fetchByMana(this.state.page, e.target.value)
+        const results = await fetchByMana(this.state.page, manaSearch)
         console.log(e.target.value)
         this.setState({
             cards: results.body.cards,
             loading: false
+        })
+    }
+    handleManaOptions = (e) => {
+        const mana = this.state.mana
+        for (let i = 0; i < mana.length; i++) {
+            const variable = mana[i]
+            if (e.target.value === variable) {
+                mana.splice([i], 1)
+                return
+            }
+        }
+        mana.push(e.target.value)
+        this.setState({
+            mana: mana
         })
     }
     render() {
@@ -79,35 +96,39 @@ export default class ListPage extends Component {
                     <LeftDrawer
                         handleTypeChange={this.handleTypeChange}
                         handleSubTypeChange={this.handleSubTypeChange}
-                        handleManaChange={this.handleManaChange} />
+                        handleManaChange={this.handleManaChange}
+                        handleManaOptions={this.handleManaOptions}
+                    />
                     <div className='card-container'>
                         {
 
-                        this.state.cards.length ?
-                            this.state.cards
-                                .filter(item => item.imageUrl)
-                                .map(card =>
-                                    <div
-                                        key={card.id} 
-                                        onClick={async () => await this.setState({ card: card })}                                    
-                                        className='image-div'>
-                                        <img src={card.imageUrl || ''}
-                                            onError={i => i.target.src = ''}
-                                            alt={card.name} 
-                                            value={card.multiverseid}
+                            this.state.cards.length ?
+                                this.state.cards
+                                    .filter(item => item.imageUrl)
+                                    .map(card =>
+                                        <div
+                                            key={card.id}
+                                            onClick={async () => await this.setState({ card: card })}
+                                            className='image-div'>
+                                            <img src={card.imageUrl || ''}
+                                                onError={i => i.target.src = ''}
+                                                alt={card.name}
+                                                value={card.multiverseid}
                                             />
-                                    </div>)
-                            : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
+                                        </div>)
+                                : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
 
                         }
                         <PagingButton className='paging-button'
-                            handlePaging={{ next: this.handleNextPage, 
-                            prev: this.handlePrevPage }}
+                            handlePaging={{
+                                next: this.handleNextPage,
+                                prev: this.handlePrevPage
+                            }}
                             count={this.state.count}
                             page={this.state.page}
                         />
                     </div>
-                    <RightDrawer card={this.state.card}/>
+                    <RightDrawer card={this.state.card} />
                 </div>
             </>
         )

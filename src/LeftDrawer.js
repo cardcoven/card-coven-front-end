@@ -10,7 +10,7 @@ export default class LeftDrawer extends Component {
                     <option></option>
                     {
                         types.map(item =>
-                            <option value={item}>{item}</option>
+                            <option key={item} value={item}>{item}</option>
                         )
                     }
                 </select>
@@ -18,16 +18,21 @@ export default class LeftDrawer extends Component {
                     <option></option>
                     {
                         subtypes.map(item =>
-                            <option value={item}>{item}</option>)
+
+                            <option key={item} value={item}>{item}</option>)
                     }
                 </select>
-                <select onChange={this.props.handleManaChange}>
-                    <option></option>
-                    {
-                        colors.map(item =>
-                            <option value={item}>{item}</option>)
-                    }
-                </select>
+                <div className="mana-form">
+                    <form onSubmit={this.props.handleManaChange}>
+                        {
+                            colors.map(item =>
+                                <label key={item}>{item}
+                                    <input onClick={this.props.handleManaOptions} type="checkbox" value={item} />
+                                </label>)
+                        }
+                        <button>Search</button>
+                    </form>
+                </div>
 
 
             </div>
