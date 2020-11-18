@@ -1,5 +1,5 @@
 .card-container {
-    width: 90vw;
+    /* width: 80vw; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -32,6 +32,12 @@ img {
 
 .image-div:hover {
     cursor: pointer;
+}
+
+.paging-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
