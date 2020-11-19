@@ -3,7 +3,8 @@ import {
     fetchAllCards,
     manaToString,
     fetchDecks,
-    fetchByParams
+    fetchByParams,
+    fetchCardByName
 } from './mtgApi';
 import './styles/list.css';
 import LeftDrawer from './LeftDrawer';
@@ -21,7 +22,7 @@ export default class ListPage extends Component {
         type: '',
         subtype: '',
         sets: '',
-        searches: false
+        name: ''
     }
 
     componentDidMount = async () => {
@@ -33,7 +34,6 @@ export default class ListPage extends Component {
     fetchAll = async () => {
         this.setState({
             loading: true,
-            searches: true
         })
         const mana = manaToString(this.state.mana)
         const type = this.state.type
@@ -87,12 +87,17 @@ export default class ListPage extends Component {
             const filteredMana = mana.filter(item => item !== e.target.value)
             await this.setState({
                 mana: filteredMana
-
             })
         }
     }
     handleSubmit = async () => {
         await this.fetchAll()
+    }
+
+
+    handleClick = async () => {
+        const response = await fetchCardByName(this.state.page, this.state.name);
+        this.setState({ cards: response.body.cards })
     }
     render() {
         return (
@@ -107,6 +112,13 @@ export default class ListPage extends Component {
                         handleSubmit={this.handleSubmit}
                     />
                     <div>
+                        <div className='search-bar'>
+                            <input
+                                onChange={(e) => this.setState({ name: e.target.value })}
+                                placeholder='Search'
+                                className="inputSearch"></input>
+                            <button onClick={this.handleClick}>Search</button>
+                        </div>
                         <div className='card-container'>
                             {
                                 this.state.cards.length ?

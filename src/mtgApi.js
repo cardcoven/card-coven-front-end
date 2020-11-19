@@ -57,6 +57,18 @@ export async function fetchAllCards(type, mana, subtype, set, page) {
     }
 }
 
+export async function fetchCarByName(page, name) {
+    try {
+        return await request
+
+            .get(`${MTGURL}?&pageSize=${PER_PAGE}&page=${page}&name=${name}`)
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+}
+
 export async function fetchCardByName(page, name) {
     try {
         return await request
@@ -82,6 +94,7 @@ export async function fetchDecks(token) {
     }
 }
 
+
 export async function postCard(newCard, token) {
     try {
         return await request
@@ -103,6 +116,32 @@ export async function fetchByParams(type, mana, subtype, set, page) {
         return {
             error: e.message
         }
+    }
+}
+
+// API DELETE every card from deck_id
+// Must do before able to delete deck
+export async function deleteDecksCards(deckId, token) {
+    try {   
+        await request.delete(`${URL}/api/cards/${deckId}`)
+        .set('Authorization', token)
+
+        return
+    } catch (e) {
+    throw e;
+    }
+}
+
+// API DELETE current deck
+// Deck must be empty
+export async function deleteDeck(deckId, token) {
+    try {   
+        await request.delete(`${URL}/api/decks/${deckId}`)
+        .set('Authorization', token)
+
+        return
+    } catch (e) {
+    throw e;
     }
 }
 
