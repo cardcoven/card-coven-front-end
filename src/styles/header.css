@@ -1,41 +1,44 @@
 .header {
     height: 15vh;
+    border-radius: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: rgb(34, 27, 28, 0.9);
     box-shadow: 0 5px 5px #221b1c ;
     padding-bottom: 5px;
     position: sticky;
+    border: solid black 2px;
 }
 .search-bar {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-end;
-
+    
 }
 .inputSearch {
     border-radius: 4px;
     padding: 10px 20px;
     margin: 5px;
     border: 1px solid lightgrey;
-    background-color: rgb(34, 27, 28, 0.3);
     color: lightgray;
     width: 20vw;
 }
+
 .logo-div {
-    
-    display: flex;
-    flex-direction: row;
+    width: 300px;
+    height: 100%;
     align-items: center;
-    margin-right: -100px;
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
 }
 .header-links {
-    width: 75vh;
-    text-align: left;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    margin: 10px;
+    text-decoration: none;
 }
 :link {
     color: lightgrey
@@ -43,43 +46,36 @@
 :visited {
     color: lightgrey
 }
-.link-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 100px;
-    background-color: #435c24;
-    border-radius: 15px;
-    box-shadow: 0 2px 5px #CFD3CE;
-}
+
 .logout {  
-    margin-right: 25px;
     display: flex;
-    align-items: flex-end;
-    margin-bottom: 10px;
+    align-items: center;
+    margin: 10px;
 }
-.link-button {
-    background-color: #CFD3CE;
-    height: 75px;
-    width: 150px;
-    border-radius: 15px;
-    box-shadow: 0 2px 5px #CFD3CE;
 
-}
 .logout-button {
-    height: 50px;
-    width: 75px;
-    border-radius: 10px;
-    background-color: #CFD3CE;
-    box-shadow: 0 2px 5px #CFD3CE;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
 
+button {
+    border-radius: 8px;
 }
 
 
 .img-logo {
-    height: 10vh;
-    width: 35vh;
+    width: 250px;
+    height: 50%;
     border-radius: 15px;
 }
+
+.space-between {
+    padding: 10px;
+}
+
+.link {
+   
+}
+
