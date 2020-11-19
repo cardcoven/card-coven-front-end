@@ -21,20 +21,27 @@ export default class Header extends Component {
                 </div>
                 {/*                                     */}
                 <div className='header-links'>
-                    <span><Link to='/userDeck'>My Deck</Link></span>
-                    <span><Link to='/list'>All Cards</Link></span>
+                    <div className="link-div">
+                        <Link to='/userDeck'>My Deck</Link>
+                    </div>
+                    <div className="link-div">
+                        <Link to='/list'>All Cards
+                        </Link>
+                    </div>
                 </div>
                 {/*                                     */}
                 <div className=''>
-                    <span><Link to='/newDeck'>Create Deck</Link></span>
+                    <div>
+                        <Link to='/newDeck'>Create Deck</Link>
+                    </div >
                 </div>
                 <div className="logout">
-                    <Link to="./"> 
-                        <div> 
-                            <p onClick={() => this.props.logout()}>logout</p> 
+                    <Link to="./">
+                        <div>
+                            <p onClick={() => this.props.logout()}>logout</p>
                         </div>
                     </Link>
-                    
+
                 </div>
             </div>
         )
