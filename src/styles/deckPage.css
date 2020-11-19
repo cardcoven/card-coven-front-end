@@ -1,0 +1,32 @@
+.card-container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 30vw 70vw;
+}
+
+.deck-page-left {
+
+}
+
+.deck-page-right {
+    text: white;
+}
+
+.deck-page-div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: rgb(34, 27, 28);
+    margin: 5px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: space-around;
+    color: white;
+}
+
+.deck-page-button {
+
+}

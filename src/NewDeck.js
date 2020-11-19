@@ -48,7 +48,7 @@ export default class NewDeck extends Component {
                     {
                         this.state.loading 
                         ? <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
-                        : <button>
+                        : <button onClick={this.handleClick}>
                             Submit
                         </button>
                     }

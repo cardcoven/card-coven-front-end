@@ -26,6 +26,9 @@ export default class RightDrawer extends Component {
             <div className='right-drawer-div'>
                 <select 
                     onChange={(e) => this.setState({ deckId: e.target.value })}>
+                    <option>
+                        Decks
+                    </option>
                     {   
                         this.props.decks.map(deck =>                
                             <option 
