@@ -162,8 +162,7 @@ export default class ListPage extends Component {
                     card={this.state.card}
                     token={this.props.token}
                     className='right-container' 
-                    decks={this.state.decks}
-                    card={this.state.card} />
+                    decks={this.state.decks} />
                 </div>
 
             </>
