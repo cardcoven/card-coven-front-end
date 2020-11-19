@@ -51,7 +51,7 @@ export default class DeckPage extends Component {
                                         </div>
                                     </>
                                 )
-                            : <img className='loader' alt='loader gif' src='https://media.giphy.com/media/13hzdQ3QCID172/giphy.gif' />
+                            : <img className='loader' alt='loader gif' src='https://i.gifer.com/XOsX.gif' />
 
                     }
                 </div>
