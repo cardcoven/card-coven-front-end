@@ -74,7 +74,6 @@ export async function fetchDecks(token) {
 export async function postCard(newCard, token) {
     try {
         return await request
-
             .post(`${URL}/api/cards`)
             .send(newCard)
             .set('Authorization', token)
@@ -82,6 +81,16 @@ export async function postCard(newCard, token) {
         return {
             error: e.message
         }
+    }
+}
+
+// API DELETE specific card id from users decks
+export async function deleteCardFromDeck(deckId, token) {
+    try {   
+        return await request.delete(`${URL}/api/cards/card/${deckId}`)
+        .set('Authorization', token)
+    } catch (e) {
+    throw e;
     }
 }
 
