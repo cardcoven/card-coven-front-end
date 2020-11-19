@@ -159,12 +159,12 @@ export default class ListPage extends Component {
                             page={this.state.page}
                         />
                     </div>
-                    <RightDrawer
-                        card={this.state.card}
-                        token={this.props.token}
-                        className='right-container'
-                        decks={this.state.decks}
-                        card={this.state.card} />
+
+                    <RightDrawer 
+                    card={this.state.card}
+                    token={this.props.token}
+                    className='right-container' 
+                    decks={this.state.decks} />
                 </div>
 
             </>
