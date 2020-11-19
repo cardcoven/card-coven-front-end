@@ -67,6 +67,20 @@ export async function fetchDecks(token) {
     }
 }
 
+export async function postCard(newCard, token) {
+    try {
+        return await request
+
+            .post(`${URL}/api/cards`)
+            .send(newCard)
+            .set('Authorization', token)
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+}
+
 export async function fetchByType(page, type) {
     try {
         return await request

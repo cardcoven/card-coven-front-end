@@ -23,7 +23,6 @@ export default class ListPage extends Component {
 
     componentDidMount = async () => {
         const response = await fetchDecks(this.props.token)
-        console.log(response);
         this.setState({ decks: response.body })
         await this.fetchAll()
     }
@@ -40,7 +39,6 @@ export default class ListPage extends Component {
             cards: results.body.cards,
             loading: false,
         })
-
     }
 
     handleNextPage = async () => {
@@ -48,7 +46,6 @@ export default class ListPage extends Component {
         this.setState({ page: this.state.page + 1 })
 
         this.fetchAll(this.state.page);
-
     }
 
     handlePrevPage = async () => {
@@ -56,7 +53,6 @@ export default class ListPage extends Component {
         this.setState({ page: this.state.page - 1 })
 
         this.fetchAll(this.state.page);
-
     }
 
     handleTypeChange = async (e) => {
@@ -66,8 +62,6 @@ export default class ListPage extends Component {
         })
 
         const results = await fetchByType(this.state.page, e.target.value)
-
-        console.log(e.target.value)
 
         this.setState({
             cards: results.body.cards,
@@ -82,8 +76,6 @@ export default class ListPage extends Component {
         })
 
         const results = await fetchBySubType(this.state.page, e.target.value)
-
-        console.log(e.target.value)
 
         this.setState({
             cards: results.body.cards,
@@ -101,7 +93,6 @@ export default class ListPage extends Component {
         })
 
         const results = await fetchByMana(this.state.page, manaSearch)
-        console.log(e.target.value)
         this.setState({
             cards: results.body.cards,
             loading: false
@@ -123,7 +114,6 @@ export default class ListPage extends Component {
 
             })
         }
-        console.log(this.state.mana)
 
     }
 
@@ -168,7 +158,12 @@ export default class ListPage extends Component {
                             page={this.state.page}
                         />
                     </div>
-                    <RightDrawer className='right-container' card={this.state.card} />
+                    <RightDrawer 
+                    card={this.state.card}
+                    token={this.props.token}
+                    className='right-container' 
+                    decks={this.state.decks}
+                    card={this.state.card} />
                 </div>
 
             </>
