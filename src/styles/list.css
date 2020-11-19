@@ -48,7 +48,9 @@
     margin: 5px;
 }
 .loader {
-    border-radius: 25px;
+    border-radius: 20px;
+    width: 55vw;
+    height: 50vh;
 }
 
 
