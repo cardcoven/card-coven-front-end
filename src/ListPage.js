@@ -53,18 +53,15 @@ export default class ListPage extends Component {
 
     handleNextPage = async () => {
         this.setState({ page: this.state.page + 1 })
-
-        this.fetchAll(this.state.page);
+        this.fetchAll();
     }
 
     handlePrevPage = async () => {
         this.setState({ page: this.state.page - 1 })
-
-        this.fetchAll(this.state.page);
+        this.fetchAll();
     }
 
     handleTypeChange = (e) => {
-
         this.setState({
             type: e.target.value
         })
@@ -79,7 +76,6 @@ export default class ListPage extends Component {
             sets: ''
         })
     }
-
     handleManaOptions = async (e) => {
         const mana = this.state.mana
         if (!this.state.mana.includes(e.target.value)) {
@@ -95,15 +91,14 @@ export default class ListPage extends Component {
         }
     }
     handleSubmit = async () => {
-        await this.fetchAll() 
+        await this.fetchAll()
     }
-    
-    
-     handleClick = async () => {
+
+
+    handleClick = async () => {
         const response = await fetchCardByName(this.state.page, this.state.name);
         this.setState({ cards: response.body.cards })
-     }
-
+    }
     render() {
         return (
             <>
@@ -116,12 +111,12 @@ export default class ListPage extends Component {
                         handleSetChange={this.handleSetChange}
                         handleSubmit={this.handleSubmit}
                     />
-                    <div>   
+                    <div>
                         <div className='search-bar'>
-                            <input 
-                            onChange={(e) => this.setState({ name: e.target.value })}
-                            placeholder='Search' 
-                            className="inputSearch"></input>
+                            <input
+                                onChange={(e) => this.setState({ name: e.target.value })}
+                                placeholder='Search'
+                                className="inputSearch"></input>
                             <button onClick={this.handleClick}>Search</button>
                         </div>
                         <div className='card-container'>

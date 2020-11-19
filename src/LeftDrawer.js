@@ -20,7 +20,7 @@ export default class LeftDrawer extends Component {
                             <option></option>
                             {
                                 types.map(item =>
-                                    <option key={item} value={item}>{item}</option>
+                                    <option key={item} value={`&types=${item}`}>{item}</option>
                                 )
                             }
                         </select>
@@ -32,7 +32,7 @@ export default class LeftDrawer extends Component {
                             {
                                 subtypes.map(item =>
 
-                                    <option key={item} value={item}>{item}</option>)
+                                    <option key={item} value={`&subtypes=${item}`}>{item}</option>)
                             }
                         </select>
                     </div>
@@ -43,7 +43,7 @@ export default class LeftDrawer extends Component {
                             {
                                 sets.map(item =>
 
-                                    <option key={item} value={item}>{item}</option>)
+                                    <option key={item} value={`&setName=${item}`}>{item}</option>)
                             }
 
                         </select>
