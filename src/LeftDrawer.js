@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import './styles/leftDrawer.css';
 import { types, subtypes, sets } from './mtgApi'
-import blue from './images/blue-mana.png'
+import blue from './images/water-mana.png'
 import black from './images/black-mana.png'
 import green from './images/green-mana.png'
-import red from './images/red-mana.png'
+import red from './images/fire-mana.png'
 import white from './images/white-mana.png'
 import './images/white-mana.png'
 
@@ -53,21 +53,21 @@ export default class LeftDrawer extends Component {
                     <p>Sort by Mana Types</p>
                     <span>
                         <label className="label" >
-                            <img style={{ border: this.props.manaState.includes('Black') && 'solid black 2px' }} className="mana-img" src={black} alt='Black' />
+                            <img style={{ filter: this.props.manaState.includes('Black') && 'drop-shadow(2px 2px 10px white)' }} className="mana-img" src={black} alt='Black' />
                             <p>Black</p>
                             <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Black" />
                         </label>
                     </span>
                     <span>
                         <label className="label" >
-                            <img style={{ border: this.props.manaState.includes('Red') && 'solid red 2px' }} className="mana-img" src={red} alt='Red' />
+                            <img style={{ filter: this.props.manaState.includes('Red') && 'drop-shadow(2px 2px 10px rgb(245, 88, 88))' }} className="mana-img" src={red} alt='Red' />
                             <p>Red</p>
                             <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Red" />
                         </label>
                     </span>
                     <span>
                         <label className="label" >
-                            <img style={{ border: this.props.manaState.includes('Blue') && 'solid blue 2px' }} className="mana-img" src={blue} alt='blue' />
+                            <img style={{ filter: this.props.manaState.includes('Blue') && 'drop-shadow(2px 2px 10px rgb(65, 140, 253))' }} className="mana-img" src={blue} alt='blue' />
                             <p>Blue</p>
                             <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Blue" />
                         </label>
@@ -77,7 +77,7 @@ export default class LeftDrawer extends Component {
                             <img style=
                                 {
                                     {
-                                        border: this.props.manaState.includes('Green') && 'solid green 2px'
+                                        filter: this.props.manaState.includes('Green') && 'drop-shadow(2px 2px 10px lightgreen)'
                                     }
                                 }
                                 className="mana-img"
@@ -88,7 +88,7 @@ export default class LeftDrawer extends Component {
                     </span>
                     <span>
                         <label className="label" >
-                            <img style={{ border: this.props.manaState.includes('White') && 'solid white 2px' }} className="mana-img" src={white} alt='White' />
+                            <img style={{ filter: this.props.manaState.includes('White') && 'drop-shadow(2px 2px 10px white)' }} className="mana-img" src={white} alt='White' />
                             <p>White</p>
                             <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="White" />
                         </label>

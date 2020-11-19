@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {
-    fetchAllCards,
     manaToString,
     fetchDecks,
     fetchByParams,
@@ -52,12 +51,12 @@ export default class ListPage extends Component {
     }
 
     handleNextPage = async () => {
-        this.setState({ page: this.state.page + 1 })
+        await this.setState({ page: this.state.page + 1 })
         this.fetchAll();
     }
 
     handlePrevPage = async () => {
-        this.setState({ page: this.state.page - 1 })
+        await this.setState({ page: this.state.page - 1 })
         this.fetchAll();
     }
 
@@ -96,8 +95,12 @@ export default class ListPage extends Component {
 
 
     handleClick = async () => {
+        this.setState({ loading: true })
         const response = await fetchCardByName(this.state.page, this.state.name);
-        this.setState({ cards: response.body.cards })
+        this.setState({ 
+            cards: response.body.cards,
+            loading: false
+         })
     }
     render() {
         return (
@@ -121,7 +124,7 @@ export default class ListPage extends Component {
                         </div>
                         <div className='card-container'>
                             {
-                                this.state.cards.length ?
+                                !this.state.loading ?
                                     this.state.cards
                                         .filter(item => item.imageUrl)
                                         .map(card =>
