@@ -17,6 +17,7 @@
     height: 40vh;
     width: 40vw;
     background-color: rgb(34, 27, 28, 0.9);
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -28,6 +29,7 @@
     height: 40vh;
     width: 40vw;
     background-color: rgb(34, 27, 28, 0.9);
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

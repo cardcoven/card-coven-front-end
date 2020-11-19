@@ -21,7 +21,6 @@ export default class RightDrawer extends Component {
     } 
 
     render() {
-        console.log(this.state.deckId);
         return (
             <div className='right-drawer-div'>
                 <select 

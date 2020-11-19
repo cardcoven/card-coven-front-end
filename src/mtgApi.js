@@ -57,6 +57,18 @@ export async function fetchAllCards(type, mana, subtype, set, page) {
     }
 }
 
+export async function fetchCarByName(page, name) {
+    try {
+        return await request
+
+            .get(`${MTGURL}?&pageSize=${PER_PAGE}&page=${page}&name=${name}`)
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+}
+
 export async function fetchCardByName(page, name) {
     try {
         return await request
