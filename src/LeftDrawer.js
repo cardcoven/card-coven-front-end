@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './styles/leftDrawer.css';
-import { types, subtypes } from './mtgApi'
+import { types, subtypes, sets } from './mtgApi'
 import blue from './images/blue-mana.png'
 import black from './images/black-mana.png'
 import green from './images/green-mana.png'
@@ -36,59 +36,68 @@ export default class LeftDrawer extends Component {
                             }
                         </select>
                     </div>
+                    <div>
+                        <p>Search by Set</p>
+                        <select onChange={this.props.handleSetChange}>
+                            <option></option>
+                            {
+                                sets.map(item =>
+
+                                    <option key={item} value={item}>{item}</option>)
+                            }
+
+                        </select>
+                    </div>
                 </div>
                 <div className="mana-form">
                     <p>Sort by Mana Types</p>
-                    <form onSubmit={this.props.handleManaChange}>
-                        <span>
-                            <label className="label" >
-                                <img style={{ border: this.props.manaState.includes('Black') && 'solid black 2px' }} className="mana-img" src={black} alt='Black' />
-                                <p>Black</p>
-                                <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Black" />
-                            </label>
-                        </span>
-                        <span>
-                            <label className="label" >
-                                <img style={{ border: this.props.manaState.includes('Red') && 'solid red 2px' }} className="mana-img" src={red} alt='Red' />
-                                <p>Red</p>
-                                <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Red" />
-                            </label>
-                        </span>
-                        <span>
-                            <label className="label" >
-                                <img style={{ border: this.props.manaState.includes('Blue') && 'solid blue 2px' }} className="mana-img" src={blue} alt='blue' />
-                                <p>Blue</p>
-                                <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Blue" />
-                            </label>
-                        </span>
-                        <span>
-                            <label className="label" >
-                                <img style=
+                    <span>
+                        <label className="label" >
+                            <img style={{ border: this.props.manaState.includes('Black') && 'solid black 2px' }} className="mana-img" src={black} alt='Black' />
+                            <p>Black</p>
+                            <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Black" />
+                        </label>
+                    </span>
+                    <span>
+                        <label className="label" >
+                            <img style={{ border: this.props.manaState.includes('Red') && 'solid red 2px' }} className="mana-img" src={red} alt='Red' />
+                            <p>Red</p>
+                            <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Red" />
+                        </label>
+                    </span>
+                    <span>
+                        <label className="label" >
+                            <img style={{ border: this.props.manaState.includes('Blue') && 'solid blue 2px' }} className="mana-img" src={blue} alt='blue' />
+                            <p>Blue</p>
+                            <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Blue" />
+                        </label>
+                    </span>
+                    <span>
+                        <label className="label" >
+                            <img style=
+                                {
                                     {
-                                        {
-                                            border: this.props.manaState.includes('Green') && 'solid green 2px'
-                                        }
+                                        border: this.props.manaState.includes('Green') && 'solid green 2px'
                                     }
-                                    className="mana-img"
-                                    src={green} alt='blue' />
-                                <p>Green</p>
-                                <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Green" />
-                            </label>
-                        </span>
-                        <span>
-                            <label className="label" >
-                                <img style={{ border: this.props.manaState.includes('White') && 'solid white 2px' }} className="mana-img" src={white} alt='White' />
-                                <p>White</p>
-                                <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="White" />
-                            </label>
-                        </span>
+                                }
+                                className="mana-img"
+                                src={green} alt='blue' />
+                            <p>Green</p>
+                            <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="Green" />
+                        </label>
+                    </span>
+                    <span>
+                        <label className="label" >
+                            <img style={{ border: this.props.manaState.includes('White') && 'solid white 2px' }} className="mana-img" src={white} alt='White' />
+                            <p>White</p>
+                            <input className="check-box" onClick={this.props.handleManaOptions} type="checkbox" value="White" />
+                        </label>
+                    </span>
 
-                        <div className="form-button">
-                            <button>Search</button>
-                        </div>
-                    </form>
+                    <div className="form-button">
+                        <button onClick={this.props.handleSubmit}>Search</button>
+                    </div>
                 </div>
-
 
             </div>
         )

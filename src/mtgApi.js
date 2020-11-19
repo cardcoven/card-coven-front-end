@@ -25,23 +25,23 @@ export async function userLogin(state) {
 //Adds new deck into SQL back end
 //contract requires a deck_name, deck_description, deck_type, and an owner_id
 export async function createDeck(newDeck, token) {
-    try {   
+    try {
         return await request
-        .post(`${URL}/api/decks`)
-        .send(newDeck)
-        .set('Authorization', token);
+            .post(`${URL}/api/decks`)
+            .send(newDeck)
+            .set('Authorization', token);
     } catch (e) {
-    throw e;
+        throw e;
     }
 }
 
 export async function fetchCards(deckId, token) {
-    try {   
+    try {
         return await request
-        .get(`${URL}/api/cards/${deckId}`)
-        .set('Authorization', token);
+            .get(`${URL}/api/cards/${deckId}`)
+            .set('Authorization', token);
     } catch (e) {
-    throw e;
+        throw e;
     }
 }
 
@@ -77,6 +77,16 @@ export async function postCard(newCard, token) {
             .post(`${URL}/api/cards`)
             .send(newCard)
             .set('Authorization', token)
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+}
+export async function fetchByParams(type, mana, subtype, set, page) {
+    try {
+        return await request
+            .get(`${MTGURL}?&pageSize=${PER_PAGE}&page=${page}&subtypes=${subtype}&types${type}&colors=${mana}&setName=${set}`)
     } catch (e) {
         return {
             error: e.message
@@ -150,3 +160,110 @@ export function manaToString(array) {
     }
     return string
 }
+export const sets = [
+    'Limited Edition Alpha',
+    'Limited Edition Beta',
+    'Unlimited Edition',
+    'Revised Edition',
+    'Fourth Edition',
+    'Fifth Edition',
+    'Classic Sixth Edition',
+    'Seventh Edition',
+    'Eighth Edition',
+    'Ninth Edition',
+    'Magic 2010',
+    'Magic 2011',
+    'Magic 2012',
+    'Magic 2013',
+    'Magic 2014',
+    'Magic 2015',
+    'Magic Origins',
+    'Core Set 2019',
+    'Core Set 2020',
+    'Core Set 2021',
+    'Arabian Nights',
+    'Antiquities',
+    'Legends',
+    'The Dark',
+    'Fallen Empires',
+    'Ice Age',
+    'Homelands',
+    'Alliances',
+    'Mirage',
+    'Visions',
+    'Weatherlight',
+    'Tempest',
+    'Stronghold',
+    'Exodus',
+    'Urza\'s Saga',
+    'Urza\'s Legacy',
+    'Urza\'s Destiny',
+    'Mercadian Masques',
+    'Nemesis',
+    'Prophecy',
+    'Invasion',
+    'Planseshift',
+    'Apocalaypse',
+    'Odyssey',
+    'Torment',
+    'Judgment',
+    'Onslaught',
+    'Legions',
+    'Scourge',
+    'Mirrodin',
+    'Darksteel',
+    'Fifth Dawn',
+    'Champions of Kamigawa',
+    'Betrayers of Kamigawa',
+    'Saviors of Kamigawa',
+    'Racnica: City of Guilds',
+    'Guildpact',
+    'Dissension',
+    'Coldsnap',
+    'Time Spiral',
+    'Planar Chaos',
+    'Future Sight',
+    'Lorwyn',
+    'Morningtide',
+    'Shadowmoor',
+    'Eventide',
+    'Shards of Alara',
+    'Conflux',
+    'Alara Reborn',
+    'Zendikar',
+    'Wolrdwake',
+    'Rise of Eldrazi',
+    'Scars of Mirrodin',
+    'Mirrodin Besieged',
+    'New Phyrexia',
+    'Innistrad',
+    'Dark Ascension',
+    'Avacyn Restored',
+    'Return to Ravnica',
+    'Gatecrash',
+    'Dragon\'s Maze',
+    'Theros',
+    'Born of the Gods',
+    'Journey into Nyx',
+    'Khans of Tarkir',
+    'Fate Reforged',
+    'Dragons of Tarkir',
+    'Battle for Zendikar',
+    'Oath of the Gatewatch',
+    'Shadows over Innistrad',
+    'Eldritch Moon',
+    'Kaladesh',
+    'Aether Revolt',
+    'Amonkhet',
+    'Hour of Devastation',
+    'Ixalan',
+    'Rivals of Ixalan',
+    'Dominaria',
+    'Guilds of Ravnica',
+    'Ravnica Allegiance',
+    'War of the Spark',
+    'Throne of Eldraine',
+    'Theros Beyond Death',
+    'Ikoria: Lair of Behemoths',
+    'Zendikar Rising',
+]
