@@ -9,8 +9,11 @@
     left: 0;
     bottom: 0;
     right: 0;
-    color: #2A1F2d
+    color: #2A1F2d;
+    margin-bottom: 0px;
+    padding: 0px;
 }
+
 .about-us {
     margin-right: 25px
 }
