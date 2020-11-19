@@ -29,7 +29,6 @@ export default class RightDrawer extends Component {
                     {   
                         this.props.decks.map(deck =>                
                             <option 
-
                             value={deck.id}>
                                 {deck.deck_description}
                             </option>
