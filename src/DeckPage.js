@@ -8,24 +8,20 @@ export default class DeckPage extends Component {
         decks: '',
         cards: [],
         deck_id: '',
+        cards_in_deck: '',
     }
 
     componentDidMount = async () => {
         this.setState({ loading: true })
         const response = await fetchDecks(this.props.token)
-        await this.setState({
-
-            decks: response.body,
-            loading: false
-        })
+        await this.setState({ decks: response.body, loading: false })
         this.setState({ loading: false })
-
     }
 
     handleClick = async (e) => {
         this.setState({ loading: true })
         const response = await fetchCards(Number(e.target.value), this.props.token)
-        this.setState({ deck_id: e.target.value})
+        this.setState({ deck_id: e.target.value })
         await this.setState({ cards: response.body, loading: false })
     }
 
@@ -33,19 +29,22 @@ export default class DeckPage extends Component {
         this.setState({ loading: true })
         await deleteDecksCards(Number(e.target.value), this.props.token)
         await deleteDeck(Number(e.target.value), this.props.token)
-        window.location.reload();
+        const response = await fetchDecks(this.props.token)
+        this.setState({ decks: response.body })
     }
     
     handleCardsDelete = async (e)  => {
         this.setState({ loading: true})
         await deleteDecksCards(Number(e.target.value), this.props.token)
-        await fetchCards(e.target.value, this.props.token);
+        const response = await fetchCards(this.state.deck_id, this.props.token);
+        this.setState({ cards: response.body })
     }
 
     handleCardDelete = async (e)  => {
         this.setState({ loading: true})
         await deleteCardFromDeck(Number(e.target.value), this.props.token)
-        await fetchCards
+        const response = await fetchCards(this.state.deck_id, this.props.token)
+        this.setState({ cards: response.body })
     }
 
     render() {
@@ -95,7 +94,15 @@ export default class DeckPage extends Component {
                                     </div>
                                     </>
                                 )
+                                
                             : <img className='loader' alt='loader gif' height='500px' width='auto' src='https://media.giphy.com/media/13hzdQ3QCID172/giphy.gif' />
+                    }
+                    {
+                        !!this.state.cards.length ?
+                        <div>
+                            <button onClick={this.handleCardsDelete} value={this.state.deck_id}>Delete Cards</button>
+                         </div>
+                         :''
                     }
                 </div>
             </div>
