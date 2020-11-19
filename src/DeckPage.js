@@ -30,7 +30,7 @@ export default class DeckPage extends Component {
 
        render() {
         return (
-            <div className='card-container'>
+            <div className='deck-page-card-container'>
                 <div className='deck-page-left'>
                             {
                                 !!this.state.decks.length ?
@@ -62,7 +62,12 @@ export default class DeckPage extends Component {
                         !!this.state.cards.length ?
                         this.state.cards
                             .map(card =>
-                                <img alt={card.name} src={card.img_url} key={card.name + card.id + Math.random()}/>
+                                <img 
+                                alt={card.name} 
+                                src={card.img_url} 
+                                key={card.name + card.id + Math.random()}
+                                className='deck-page-card-img'
+                                />
                                 )
                         : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
                     }

@@ -1,24 +1,29 @@
-.card-container {
+.deck-page-card-container {
     display: grid;
     width: 100%;
-    height: 100%;
-    grid-template-columns: 30vw 70vw;
+    height: 100vh;
+    grid-template-columns: 20vw 74.9vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .deck-page-left {
-
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 95vh;
+    align-items: center;
 }
 
 .deck-page-right {
-    text: white;
 }
 
 .deck-page-div {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 300px;
-    height: 400px;
+    width: 350px;
+    height: 300px;
     background-color: rgb(34, 27, 28);
     margin: 5px;
     border-radius: 10px;
