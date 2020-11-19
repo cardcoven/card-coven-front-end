@@ -47,6 +47,9 @@
 .deck-page-card-img {
     margin: 5px;
 }
+.loader {
+    border-radius: 25px;
+}
 
 
 

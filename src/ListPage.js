@@ -20,7 +20,8 @@ export default class ListPage extends Component {
         decks: [],
         type: '',
         subtype: '',
-        sets: ''
+        sets: '',
+        searches: false
     }
 
     componentDidMount = async () => {
@@ -30,26 +31,33 @@ export default class ListPage extends Component {
     }
 
     fetchAll = async () => {
+        this.setState({
+            loading: true,
+            searches: true
+        })
+        const mana = manaToString(this.state.mana)
+        const type = this.state.type
+        const subtype = this.state.subtype
+        const set = this.state.sets
+        const page = this.state.page
+        const results = await fetchByParams(type, mana, subtype, set, page)
+        if (!results.body.cards.length) {
+            return alert("no cards match selected search")
 
-        this.setState({
-            loading: true
-        })
-        const results = await fetchAllCards(this.state.page)
-        this.setState({
-            cards: results.body.cards,
-            loading: false,
-        })
+        } else
+            this.setState({
+                cards: results.body.cards,
+                loading: false
+            })
     }
 
     handleNextPage = async () => {
-
         this.setState({ page: this.state.page + 1 })
 
         this.fetchAll(this.state.page);
     }
 
     handlePrevPage = async () => {
-
         this.setState({ page: this.state.page - 1 })
 
         this.fetchAll(this.state.page);
@@ -88,26 +96,7 @@ export default class ListPage extends Component {
         }
     }
     handleSubmit = async () => {
-        this.setState({
-            loading: true
-        })
-        const mana = manaToString(this.state.mana)
-        const type = this.state.type
-        const subtype = this.state.subtype
-        const set = this.state.sets
-        const page = this.state.page
-        const results = await fetchByParams(type, mana, subtype, set, page)
-        if (!results.body.cards.length) {
-            return alert("no cards match selected search")
-        } else
-            this.setState({
-                cards: results.body.cards,
-                loading: false
-            })
-
-
-
-
+        await this.fetchAll()
     }
 
     render() {
