@@ -31,12 +31,20 @@ export async function userLogin(state) {
 //contract requires a deck_name, deck_description, deck_type, and an owner_id
 export async function createDeck(newDeck, token) {
     try {   
-        await request
-        .post('https://card-coven-back-end-2020.herokuapp.com/api/decks')
+        return await request
+        .post(`${URL}/api/decks`)
         .send(newDeck)
-        .set('Authorization', token)
+        .set('Authorization', token);
+    } catch (e) {
+    throw e;
+    }
+}
 
-        return;
+export async function fetchCards(deckId, token) {
+    try {   
+        return await request
+        .get(`${URL}/api/cards/${deckId}`)
+        .set('Authorization', token);
     } catch (e) {
     throw e;
     }
