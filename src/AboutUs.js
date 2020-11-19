@@ -48,7 +48,7 @@ export default class App extends Component {
                     {photos.map(photo => {
                         return (
                             <div>
-                                <img width="auto" src={photo.url} alt='MTG Cards' />
+                                <img className='about-us-img'width="auto" src={photo.url} alt='MTG Cards' />
                             </div>
                         )
                     })}

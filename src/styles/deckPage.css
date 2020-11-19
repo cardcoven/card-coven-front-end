@@ -1,4 +1,4 @@
-.card-container {
+.deck-page-card-container {
     display: grid;
     width: 100%;
     height: 100%;
@@ -6,7 +6,7 @@
 }
 
 .deck-page-left {
-
+    
 }
 
 .deck-page-right {

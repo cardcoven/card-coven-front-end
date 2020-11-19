@@ -30,7 +30,7 @@ export default class DeckPage extends Component {
 
        render() {
         return (
-            <div className='card-container'>
+            <div className='deck-page-card-container'>
                 <div className='deck-page-left'>
                             {
                                 !!this.state.decks.length ?
