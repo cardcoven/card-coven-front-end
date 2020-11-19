@@ -53,18 +53,15 @@ export default class ListPage extends Component {
 
     handleNextPage = async () => {
         this.setState({ page: this.state.page + 1 })
-
-        this.fetchAll(this.state.page);
+        this.fetchAll();
     }
 
     handlePrevPage = async () => {
         this.setState({ page: this.state.page - 1 })
-
-        this.fetchAll(this.state.page);
+        this.fetchAll();
     }
 
     handleTypeChange = (e) => {
-
         this.setState({
             type: e.target.value
         })
@@ -79,7 +76,6 @@ export default class ListPage extends Component {
             sets: ''
         })
     }
-
     handleManaOptions = async (e) => {
         const mana = this.state.mana
         if (!this.state.mana.includes(e.target.value)) {
@@ -98,7 +94,6 @@ export default class ListPage extends Component {
     handleSubmit = async () => {
         await this.fetchAll()
     }
-
     render() {
         return (
             <>

@@ -46,10 +46,10 @@ export async function fetchCards(deckId, token) {
 }
 
 export async function fetchAllCards(type, mana, subtype, set, page) {
+
     try {
         return await request
-
-            .get(`${MTGURL}?&pageSize=${PER_PAGE}&page=${page}&subtypes=${subtype}&types=${type}&colors=${mana}&setName=${set}`)
+            .get(`${MTGURL}?&pageSize=${PER_PAGE}&page=${page}${subtype}${type}${mana}${set}`)
     } catch (e) {
         return {
             error: e.message
@@ -98,7 +98,7 @@ export async function postCard(newCard, token) {
 export async function fetchByParams(type, mana, subtype, set, page) {
     try {
         return await request
-            .get(`${MTGURL}?&pageSize=${PER_PAGE}&page=${page}&subtypes=${subtype}&types=${type}&colors=${mana}&setName=${set}`)
+            .get(`${MTGURL}?&pageSize=${PER_PAGE}&page=${page}${subtype}${type}${mana}${set}`)
     } catch (e) {
         return {
             error: e.message
@@ -168,7 +168,7 @@ export const subtypes = [
 export function manaToString(array) {
     let string = '|'
     for (let i = 0; i < array.length; i++) {
-        string = string + array[i] + '|'
+        string = '&colors=' + string + array[i] + '|'
     }
     return string
 }
