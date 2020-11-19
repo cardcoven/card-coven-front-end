@@ -2,11 +2,20 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import './styles/header.css';
 import logo from './images/card-coven.png'
+import { Route } from 'react-router-dom';
 
 
 
 
 export default class Header extends Component {
+
+    state = {
+
+    }
+handleClick = async () => {
+    
+}
+
     render() {
         return (
             <div className='header'>
@@ -15,31 +24,31 @@ export default class Header extends Component {
                 <div className="logo-div">
                     <img className='img-logo' src={logo} alt='logo'></img>
                 </div>
-                {/*                                     */}
-                <div className='search-bar'>
-                    <input placeholder='Search' className="inputSearch"></input>
-                </div>
-                {/*                                     */}
-                <div className='header-links'>
-                    <div className="link-div">
-                        <Link to='/userDeck'>My Deck</Link>
+               <Route path='/list'>
+                    <div className='search-bar'>
+                        <input placeholder='Search' className="inputSearch"></input>
+                        <button onClick={this.handleClick}>Search</button>
                     </div>
-                    <div className="link-div">
-                        <Link to='/list'>All Cards
-                        </Link>
-                    </div>
+                </Route>
+                
+                <div className='header-links'>   
+                        <div className='space-between'>                         
+                            <Link to='/userDeck'>My Deck</Link>
+                        </div>
+                        <div className='space-between'>    
+                            <Link to='/list'>All Cards</Link>
+                        </div>
+                        <div className='space-between'>    
+                            <Link to='/newDeck'>Create Deck</Link>
+                        </div> 
                 </div>
-                {/*                                     */}
-                <div className=''>
-                    <div>
-                        <Link to='/newDeck'>Create Deck</Link>
-                    </div >
-                </div>
+              
+               
                 <div className="logout">
                     <Link to="./">
-                        <div>
+                        <button className='logout-button'>
                             <p onClick={() => this.props.logout()}>logout</p>
-                        </div>
+                        </button>
                     </Link>
 
                 </div>

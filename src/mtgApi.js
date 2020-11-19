@@ -49,7 +49,19 @@ export async function fetchAllCards(page) {
     try {
         return await request
 
-            .get(`${MTGURL}?&pageSize=20&page=${page}&`)
+            .get(`${MTGURL}?&pageSize=${PER_PAGE}&page=${page}&`)
+    } catch (e) {
+        return {
+            error: e.message
+        }
+    }
+}
+
+export async function fetchCardByName(page, name) {
+    try {
+        return await request
+
+            .get(`${MTGURL}?&pageSize=${PER_PAGE}&page=${page}&name=${name}`)
     } catch (e) {
         return {
             error: e.message
