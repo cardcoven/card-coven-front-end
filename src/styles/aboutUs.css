@@ -5,6 +5,8 @@
     box-shadow: 0 5px 5px #221b1c ;
     width: 500px;
     flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-us-links{
@@ -12,12 +14,39 @@
 }
 
 .about-us-names{
-    margin-left: 25px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-us-all{
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
+.carousel-img{
+    width: 800px;
+
+}
+
+.App{
+    margin: auto;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-us-title{
+    color: white;
+}
+
+.slides{
+    margin-right: auto;
+    margin-left: auto;
+    width: 1500px;
+}
+
+img{
+    width: 400px;
+}
