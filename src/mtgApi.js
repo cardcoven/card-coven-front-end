@@ -1,10 +1,5 @@
 import request from 'superagent';
 import { PER_PAGE } from './constants';
-import black from './images/black-mana.png'
-import green from './images/green-mana.png'
-import blue from './images/green-mana.png'
-import red from './images/white-mana.png'
-import white from './images/white-mana.png'
 
 const URL = 'https://card-coven-back-end-2020.herokuapp.com';
 const MTGURL = 'https://api.magicthegathering.io/v1/cards';
@@ -110,6 +105,7 @@ export async function fetchBySubType(page, type) {
         }
     }
 }
+
 export async function fetchByMana(page, type) {
     try {
         return await request
