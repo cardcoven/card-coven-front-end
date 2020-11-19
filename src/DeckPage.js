@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchDecks, fetchCards, deleteDecksCards, deleteDeck } from './mtgApi';
+import { fetchDecks, fetchCards, deleteDecksCards, deleteDeck, deleteCardFromDeck } from './mtgApi';
 import './styles/deckPage.css';
 
 export default class DeckPage extends Component {
@@ -7,6 +7,7 @@ export default class DeckPage extends Component {
         loading: false,
         decks: '',
         cards: [],
+        deck_id: '',
     }
 
     componentDidMount = async () => {
@@ -24,15 +25,27 @@ export default class DeckPage extends Component {
     handleClick = async (e) => {
         this.setState({ loading: true })
         const response = await fetchCards(Number(e.target.value), this.props.token)
+        this.setState({ deck_id: e.target.value})
         await this.setState({ cards: response.body, loading: false })
-        console.log(response.body)
     }
 
-    handleDeckDelete =async(e) => {
+    handleDeckDelete = async (e) => {
         this.setState({ loading: true })
         await deleteDecksCards(Number(e.target.value), this.props.token)
         await deleteDeck(Number(e.target.value), this.props.token)
         window.location.reload();
+    }
+    
+    handleCardsDelete = async (e)  => {
+        this.setState({ loading: true})
+        await deleteDecksCards(Number(e.target.value), this.props.token)
+        await fetchCards(e.target.value, this.props.token);
+    }
+
+    handleCardDelete = async (e)  => {
+        this.setState({ loading: true})
+        await deleteCardFromDeck(Number(e.target.value), this.props.token)
+        await fetchCards
     }
 
     render() {
@@ -71,7 +84,7 @@ export default class DeckPage extends Component {
                                     <div className='deck-page-card-list'>
                                         <div className='deck-page-button-dropdown'>
                                             <button>Add Card</button>
-                                            <button>Delete Card</button>
+                                            <button onClick={this.handleCardDelete} value={card.id}>Delete Card</button>
                                         </div>
                                         <img
                                             alt={card.name}
