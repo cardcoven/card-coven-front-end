@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import {
     fetchAllCards,
-    fetchByType,
-    fetchBySubType,
-    fetchByMana,
     manaToString,
-    fetchDecks
+    fetchDecks,
+    fetchByParams
 } from './mtgApi';
 import './styles/list.css';
 import LeftDrawer from './LeftDrawer';
@@ -19,7 +17,10 @@ export default class ListPage extends Component {
         loading: false,
         page: 1,
         mana: [],
-        decks: []
+        decks: [],
+        type: '',
+        subtype: '',
+        sets: ''
     }
 
     componentDidMount = async () => {
@@ -33,9 +34,7 @@ export default class ListPage extends Component {
         this.setState({
             loading: true
         })
-
         const results = await fetchAllCards(this.state.page)
-
         this.setState({
             cards: results.body.cards,
             loading: false,
@@ -56,49 +55,21 @@ export default class ListPage extends Component {
         this.fetchAll(this.state.page);
     }
 
-    handleTypeChange = async (e) => {
+    handleTypeChange = (e) => {
 
         this.setState({
-            loading: true
+            type: e.target.value
         })
-
-        const results = await fetchByType(this.state.page, e.target.value)
-
-        this.setState({
-            cards: results.body.cards,
-            loading: false
-        })
-
     }
-    handleSubTypeChange = async (e) => {
-
+    handleSubTypeChange = (e) => {
         this.setState({
-            loading: true
+            subtype: e.target.value
         })
-
-        const results = await fetchBySubType(this.state.page, e.target.value)
-
-        this.setState({
-            cards: results.body.cards,
-            loading: false
-        })
-
     }
-    handleManaChange = async (e) => {
-
-        e.preventDefault()
-
-        let manaSearch = manaToString(this.state.mana)
+    handleSetChange = (e) => {
         this.setState({
-            loading: true
+            sets: ''
         })
-
-        const results = await fetchByMana(this.state.page, manaSearch)
-        this.setState({
-            cards: results.body.cards,
-            loading: false
-        })
-
     }
 
     handleManaOptions = async (e) => {
@@ -115,6 +86,27 @@ export default class ListPage extends Component {
 
             })
         }
+    }
+    handleSubmit = async () => {
+        this.setState({
+            loading: true
+        })
+        const mana = manaToString(this.state.mana)
+        const type = this.state.type
+        const subtype = this.state.subtype
+        const set = this.state.sets
+        const page = this.state.page
+        const results = await fetchByParams(type, mana, subtype, set, page)
+        if (!results.body.cards.length) {
+            return alert("no cards match selected search")
+        } else
+            this.setState({
+                cards: results.body.cards,
+                loading: false
+            })
+
+
+
 
     }
 
@@ -125,9 +117,10 @@ export default class ListPage extends Component {
                     <LeftDrawer
                         handleTypeChange={this.handleTypeChange}
                         handleSubTypeChange={this.handleSubTypeChange}
-                        handleManaChange={this.handleManaChange}
                         handleManaOptions={this.handleManaOptions}
                         manaState={this.state.mana}
+                        handleSetChange={this.handleSetChange}
+                        handleSubmit={this.handleSubmit}
                     />
                     <div>
                         <div className='card-container'>
@@ -160,11 +153,11 @@ export default class ListPage extends Component {
                         />
                     </div>
 
-                    <RightDrawer 
-                    card={this.state.card}
-                    token={this.props.token}
-                    className='right-container' 
-                    decks={this.state.decks} />
+                    <RightDrawer
+                        card={this.state.card}
+                        token={this.props.token}
+                        className='right-container'
+                        decks={this.state.decks} />
                 </div>
 
             </>
