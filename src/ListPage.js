@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { 
-    fetchAllCards, 
-    fetchByType, 
-    fetchBySubType, 
-    fetchByMana, 
+import {
+    fetchAllCards,
+    fetchByType,
+    fetchBySubType,
+    fetchByMana,
     manaToString,
-    fetchDecks } from './mtgApi';
+    fetchDecks
+} from './mtgApi';
 import './styles/list.css';
 import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
@@ -145,7 +146,7 @@ export default class ListPage extends Component {
                                                     value={card.multiverseid}
                                                 />
                                             </div>)
-                                    : <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
+                                    : <img className='loader' alt='loader gif' height='500px' width='auto' src='https://media.giphy.com/media/1QdNRW77hbA4lGhdRl/giphy.gif' />
 
                             }
                         </div>
@@ -158,6 +159,7 @@ export default class ListPage extends Component {
                             page={this.state.page}
                         />
                     </div>
+
                     <RightDrawer 
                     card={this.state.card}
                     token={this.props.token}

@@ -4,7 +4,7 @@ import './styles/signup.css';
 
 export default class SignUp extends Component {
 
-    state = { 
+    state = {
         email: '',
         password: '',
         loading: false
@@ -31,66 +31,66 @@ export default class SignUp extends Component {
     render() {
         return (
             <div>
-            <div className='signupFormDiv'>
-                <form 
-                className='signupForm'
-                onSubmit={this.handleSignupSubmit}>
-                    <h2>Sign Up</h2>
-                    <label>
-                        <input
-                            required
-                            onChange={(e) => this.setState({ email: e.target.value })}
-                            type='text'
-                            placeholder='Email'
-                        ></input>
-                    </label>
-                    <label>
-                        <input
-                            required
-                            onChange={(e) => this.setState({ password: e.target.value })}
-                            type='password'
-                            placeholder='Password'
-                        ></input>
-                    </label>
-                    {
-                        this.state.loading 
-                        ? <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
-                        : <button>
-                            Sign up!
+                <div className='signupFormDiv'>
+                    <form
+                        className='signupForm'
+                        onSubmit={this.handleSignupSubmit}>
+                        <h2>Sign Up</h2>
+                        <label>
+                            <input
+                                required
+                                onChange={(e) => this.setState({ email: e.target.value })}
+                                type='text'
+                                placeholder='Email'
+                            ></input>
+                        </label>
+                        <label>
+                            <input
+                                required
+                                onChange={(e) => this.setState({ password: e.target.value })}
+                                type='password'
+                                placeholder='Password'
+                            ></input>
+                        </label>
+                        {
+                            this.state.loading
+                                ? <img className='loader' alt='loader gif' src='https://giphy.com/gifs/reddit-doing-lJNoBCvQYp7nq' />
+                                : <button>
+                                    Sign up!
                         </button>
-                    }
-                </form>
+                        }
+                    </form>
                 </div>
                 <div className='login-form-div'>
-                    <form 
-                    className='login-form'
-                    onSubmit={this.handleLoginSubmit}>
+                    <form
+                        className='login-form'
+                        onSubmit={this.handleLoginSubmit}>
                         <h2>Log In</h2>
                         <label>
                             Email:
-                        <input 
-                        onChange={(e) => this.setState({ email: e.target.value})} 
-                        value={this.state.email} 
-                        />
+                        <input
+                                onChange={(e) => this.setState({ email: e.target.value })}
+                                value={this.state.email}
+                            />
                         </label>
                         <label>
                             Password:
-                            <input 
-                            onChange={(e) => this.setState({ password: e.target.value})} 
-                            value={this.state.password} 
-                            type="password"
+                            <input
+                                onChange={(e) => this.setState({ password: e.target.value })}
+                                value={this.state.password}
+                                type="password"
                             />
                         </label>
                         {
-                        this.state.loading 
-                        ? <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
-                        : <button>
-                            Login!
+                            this.state.loading
+                                ? <img className='loader' alt='loader gif' src='https://giphy.com/gifs/reddit-doing-lJNoBCvQYp7nq' />
+                                : <button>
+                                    Login!
                         </button>
-                    }
+                        }
                     </form>
-                
-            </div>
+
+                </div>
             </div>
         )
     }
