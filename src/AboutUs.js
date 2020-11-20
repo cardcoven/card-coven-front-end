@@ -48,7 +48,7 @@ export default class App extends Component {
                     {photos.map(photo => {
                         return (
                             <div>
-                                <img className='about-us-img'width="auto" src={photo.url} alt='MTG Cards' />
+                                <img className='about-us-img' width="auto" src={photo.url} alt='MTG Cards' />
                             </div>
                         )
                     })}
@@ -62,7 +62,7 @@ export default class App extends Component {
                 <br />
                 <div className='about-us-list-container'>
                     <div className='about-us-names about-us-title'>Justin's Pages
-                        <a className='about-us-links' href="https://www.linkedin.com/in/justin-martin-a5917388/" target="blank">LinkedIn</a>
+                        <a className='about-us-links' href="https://www.linkedin.com/in/justin-martin7x/" target="blank">LinkedIn</a>
                         <a className='about-us-links' href="https://github.com/JustinMartin7x" target="blank">Github</a>
                     </div>
                 </div>
