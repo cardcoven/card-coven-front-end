@@ -76,7 +76,7 @@ export default class App extends Component {
                 <br />
                 <div className='about-us-list-container'>
                     <div className='about-us-names about-us-title'>Jonathan's Pages
-                        <a className='about-us-links' href="https://www.linkedin.com/in/jonathan-quesada-021305108/" target="blank">LinkedIn</a>
+                        <a className='about-us-links' href="https://www.linkedin.com/in/Quesada-Jonathan" target="blank">LinkedIn</a>
                         <a className='about-us-links' href="https://github.com/QuesadaJon" target="blank">Github</a>
                     </div>
                 </div>
