@@ -14,14 +14,12 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-end;
-    
 }
 .inputSearch {
     border-radius: 4px;
     padding: 10px 20px;
     margin: 5px;
     border: 1px solid lightgrey;
-    color: lightgray;
     width: 20vw;
 }
 
@@ -75,7 +73,11 @@ button {
     padding: 10px;
 }
 
-.link {
-   
+.header-link {
+    text-decoration: none;
 }
+
+.header-link:hover {
+    text-decoration: underline;
+  }
 

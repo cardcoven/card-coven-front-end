@@ -116,7 +116,7 @@ export default class ListPage extends Component {
                     />
                     <div>
                         <div className='search-bar'>
-                            <input
+                            <input className='list-page-search-bar'
                                 onChange={(e) => this.setState({ name: e.target.value })}
                                 placeholder='Search'
                                 className="inputSearch"></input>
@@ -138,7 +138,7 @@ export default class ListPage extends Component {
                                                     value={card.multiverseid}
                                                 />
                                             </div>)
-                                    : <img className='loader' alt='loader gif' height='500px' width='auto' src='https://media.giphy.com/media/1QdNRW77hbA4lGhdRl/giphy.gif' />
+                                    : <img className='loader' alt='loader gif' height='500px' width='auto' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif' />
 
                             }
                         </div>
