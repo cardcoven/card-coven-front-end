@@ -26,34 +26,39 @@ export default class NewDeck extends Component {
     }
     render() {
         return (
-            <div className='new-deck-div'>
-                <form 
-                className='new-deck-form'
-                onSubmit={this.handleSubmit}
-                >
-                    <label>New Deck Name<br></br>
-                        <input
-                            required
-                            onChange={(e) => this.setState({ new_deck: e.target.value })}
-                            type='text'
-                        ></input>
-                    </label>
-                    <label>Deck Description<br></br>
-                        <input
-                            required
-                            onChange={(e) => this.setState({ new_description: e.target.value })}
-                            type='text'
-                        ></input>
-                    </label>
-                    {
-                        this.state.loading 
-                        ? <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
-                        : <button onClick={this.handleClick}>
-                            Submit
-                        </button>
-                    }
-                </form>
-            </div>
+            <>
+                <div className='new-deck-div'>
+                    <form 
+                    className='new-deck-form'
+                    onSubmit={this.handleSubmit}
+                    >
+                        <label>New Deck Name<br></br>
+                            <input
+                                required
+                                onChange={(e) => this.setState({ new_deck: e.target.value })}
+                                type='text'
+                            ></input>
+                        </label>
+                        <label>Deck Description<br></br>
+                            <input
+                                required
+                                onChange={(e) => this.setState({ new_description: e.target.value })}
+                                type='text'
+                            ></input>
+                        </label>
+                        {
+                            this.state.loading 
+                            ? <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
+                            : <button onClick={this.handleClick}>
+                                Submit
+                            </button>
+                        }
+                    </form>
+                </div>
+                <div>
+                    some stuff about deck templates!
+                </div>
+                </>
         )
     }
 }

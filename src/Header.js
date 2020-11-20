@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import './styles/header.css';
-import logo from './images/card-coven.png'
+import logo from './images/card-coven.png';
 
 
 
@@ -18,14 +18,17 @@ export default class Header extends Component {
                 </div> 
                 <div className='header-links'>   
                         <div className='space-between'>                         
-                            <Link to='/userDeck'>My Deck</Link>
+                            <Link className='header-link' to='/userDeck'>My Deck</Link>
                         </div>
                         <div className='space-between'>    
-                            <Link to='/list'>All Cards</Link>
+                            <Link className='header-link' to='/list'>All Cards</Link>
                         </div>
                         <div className='space-between'>    
-                            <Link to='/newDeck'>Create Deck</Link>
+                            <Link className='header-link' to='/newDeck'>Create Deck</Link>
                         </div> 
+                        <div className='space-between'>
+                            <Link className='header-link' to='/aboutus'>About Us</Link>
+                        </div>
                 </div>               
                 <div className="logout">
                     <Link to="/">
