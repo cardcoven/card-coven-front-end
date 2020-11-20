@@ -97,10 +97,10 @@ export default class ListPage extends Component {
     handleClick = async () => {
         this.setState({ loading: true })
         const response = await fetchCardByName(this.state.page, this.state.name);
-        this.setState({ 
+        this.setState({
             cards: response.body.cards,
             loading: false
-         })
+        })
     }
     render() {
         return (
@@ -119,7 +119,7 @@ export default class ListPage extends Component {
                             <input className='list-page-search-bar'
                                 onChange={(e) => this.setState({ name: e.target.value })}
                                 placeholder='Search'
-                                className="inputSearch"></input>
+                            ></input>
                             <button onClick={this.handleClick}>Search</button>
                         </div>
                         <div className='card-container'>
