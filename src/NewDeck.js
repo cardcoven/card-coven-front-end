@@ -25,8 +25,8 @@ export default class NewDeck extends Component {
 
     }
     render() {
-        return (
-            <>
+        return (     
+            <div className='center-deck-page-content'>
                 <div className='new-deck-div'>
                     <form 
                     className='new-deck-form'
@@ -54,11 +54,16 @@ export default class NewDeck extends Component {
                             </button>
                         }
                     </form>
+                <div className='deck-template-p'>
+                    <h2>Deck Rules:</h2>
+                    <ul>
+                        <li>Your deck must have a minimum of 60 cards.</li>
+                        <li>Your deck may only contain 4 of any card. The only exceptions of this rule are the Basic Lands or if a card's text contradicts this rule </li>
+                        <li>If you play in other Formats, you will have to pay attention to the limited/forbidden cards.</li>
+                    </ul>
                 </div>
-                <div>
-                    some stuff about deck templates!
-                </div>
-                </>
+                </div>           
+            </div>
         )
     }
 }
