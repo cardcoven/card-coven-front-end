@@ -23,7 +23,7 @@ export default class RightDrawer extends Component {
     render() {
         return (
             <div className='right-drawer-div'>
-                <select 
+                <select className='right-drawer-select'
                     onChange={(e) => this.setState({ deckId: e.target.value })}>
                     <option>
                         Decks
