@@ -8,8 +8,10 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 10vh;
-    height: 100%;
+    height: 29.9vw;
+    margin-bottom: 5vw;
     width: 80vw;
+    overflow: hidden;
 }
 
 .new-deck-form {
@@ -22,6 +24,7 @@
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
+    padding:10px;
 }
 
 input {
@@ -50,4 +53,11 @@ button:hover {
 
 .deck-template-p {
     color: white;
+    margin-left: 100px;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(34, 27, 28, 0.9);
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
 }
