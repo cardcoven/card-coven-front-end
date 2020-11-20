@@ -1,34 +1,37 @@
 .right-drawer-div {
     background-color: rgb(34, 27, 28, 0.8);
-    border-radius: 15px;
-    min-height: 100%;
-    color: white;
+    color: lightgray;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    margin-right: 20px;
-    margin-top: 15px;
+    align-items: center;
+    justify-content: start;
+    border: solid black 2px;
+    border-radius: 15px;
+    height: 99%;
+    margin-top: 5px;
 }
 .display-image {
      margin-top: 50px; 
     margin-bottom: 5px;
-    
 }
+
 .description-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid black 2px;
     margin-right: 20px;
     border-radius: 15px;
     margin-top: 25px;
-    background-color: rgb(34, 27, 28, 0.8);
     text-align: center;
-    
-
+    width: 80%;
 }
+
 .right-drawer-img{
     margin-top: 50px;
     margin-bottom: 50px; 
+}
+
+.right-drawer-select {
+    margin-top: 10px;
 }

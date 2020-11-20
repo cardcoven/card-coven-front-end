@@ -1,5 +1,4 @@
 .left-drawer-div {
-    
     max-height: calc(var(--footer));
     min-height: 100%;
     margin-top: 5px;
@@ -9,14 +8,13 @@
     flex-direction: column;
     justify-content: left;
     margin-left: 5px;
-    
+    color: white;
 }
 .selectors-div {
     background-color: rgb(34, 27, 28, 0.8);
     border: solid black 2px;
     border-radius: 15px;
     margin-bottom: 10px;
-
 }
 .type-div {
     display: flex;

@@ -12,3 +12,13 @@ body {
 html {
   height: 100vh;
 }
+
+select {
+  width: 150px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+img {
+  border-radius: 10px;
+}
